@@ -1,0 +1,10 @@
+* .doom.d
+My personal doom settings with focus on Python
+* Usage
+Install doom emacs, do
+
+#+BEGIN_SRC shell
+mv .doom.d .doom.d.bak
+git clone https://github.com/haditim/.doom.d
+.emacs.d/bin/doom refresh
+#+END_SRC
