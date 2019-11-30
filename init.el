@@ -178,6 +178,7 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(confirm-kill-emacs nil)
  '(custom-safe-themes
    (quote
     ("15ba8081651869ec689c9004288bed79003de5b4ee9c51a9d4a208d9e3439706" default))))
