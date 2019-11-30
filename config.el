@@ -1,7 +1,5 @@
 ;;; .doom.d/config.el -*- lexical-binding: t; -*-
 
-;; Place your private configuration here
-
 (setq
  doom-font (font-spec :family "Source Code Pro" :size 14)
  doom-big-font (font-spec :family "Source Code Pro" :size 22)
@@ -9,6 +7,7 @@
  display-line-numbers-type 'relative
  elpy-rpc-virtualenv-path 'current
 )
+
 ;; Place your private configuration here
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 (add-hook 'python-mode-hook 'jedi:setup)
@@ -16,15 +15,11 @@
 (setq-default flycheck-flake8-maximum-line-length 120)
 
 ;; Enable elpy
-
 (elpy-enable)
-;; (desktop-save-mode 1)
-
 ;; Enable Flycheck
+(when (require 'flycheck nil t)
+  (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
+  (add-hook 'elpy-mode-hook 'flycheck-mode))
 
-;; (when (require 'flycheck nil t)
-
-;;   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
-
-;;   (add-hook 'elpy-mode-hook 'flycheck-mode))
-
+;; Start maximised (cross-platf)
+(add-hook 'window-setup-hook 'toggle-frame-maximized t)
