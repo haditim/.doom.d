@@ -18,7 +18,7 @@
 ;; Enable elpy
 
 (elpy-enable)
-
+;; (desktop-save-mode 1)
 
 ;; Enable Flycheck
 
