@@ -13,14 +13,16 @@
        ;;japanese
 
        :completion
-       ;; (company          ; the ultimate code completion backend
-       ;;  +tng
-       ;;  +jedi
-       ;;  +auto            ; as-you-type code completion
-       ;;  +childframe
-       ;;  )     ; a nicer company UI. Emacs +26 only!
-       ;; ;;helm              ; the *other* search engine for love and life
-       ;;ido               ; the other *other* search engine...
+       (company          ; the ultimate code completion backend
+        +tng
+        +jedi
+        +elpy
+        +auto            ; as-you-type code completion
+        ;; +childframe
+        +files
+        )     ; a nicer company UI. Emacs +26 only!
+       helm              ; the *other* search engine for love and life
+       ido               ; the other *other* search engine...
        ivy               ; a search engine for love and life
 
        :ui
