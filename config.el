@@ -10,12 +10,15 @@
 
 ;; Place your private configuration here
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)                 ; optional
-(setq-default flycheck-flake8-maximum-line-length 120)
 
-;; Enable elpy
+;; Jedi
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:complete-on-dot t)                 ; optional
+
+(setq-default flycheck-flake8-maximum-line-length 120)
+;; enable elpy
 (elpy-enable)
+
 ;; Enable Flycheck
 (when (require 'flycheck nil t)
   (setq elpy-modules (delq 'elpy-module-flymake elpy-modules))
@@ -23,3 +26,9 @@
 
 ;; Start maximised (cross-platf)
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
+(add-hook 'after-init-hook 'global-company-mode)
+
+;; * keybinds
+;; autocomplete cycle through completions
+(map! :map ac-completing-map "C-j" #'ac-next)
+(map! :map ac-completing-map "C-k" #'ac-previous)
