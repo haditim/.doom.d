@@ -28,9 +28,16 @@
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
 (add-hook 'after-init-hook 'global-company-mode)
 
-;; * keybinds
+;; issue: https://github.com/hlissner/doom-emacs/issues/2135
+(fset 'battery-update #'ignore)
+
+;; keybinds
 ;; autocomplete cycle through completions
 (map! :map ac-completing-map "C-j" #'ac-next)
 (map! :map ac-completing-map "C-k" #'ac-previous)
-;; issue: https://github.com/hlissner/doom-emacs/issues/2135
-(fset 'battery-update #'ignore)
+;; Docker-compose
+(map! :leader
+ (:prefix-map ("d" . "Docker")
+  :desc "Docker-compose"  "c" #'docker-compose
+  :desc "Docker"  "d" #'docker)
+ )
