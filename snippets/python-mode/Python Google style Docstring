@@ -9,7 +9,7 @@ def ${1:name}($2):
     \"\"\"$3
     ${2:$(python-args-to-google-docstring yas-text t)}
     ${5:Returns:
-        $6
+            $6
 }
     \"\"\"
     ${0:$$(let ((beg yas-snippet-beg)
