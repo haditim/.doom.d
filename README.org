@@ -1,9 +1,13 @@
 * .doom.d
 My personal doom settings with focus on Python
 * Usage
-Install [[https://github.com/hlissner/doom-emacs][doom emacs,]] then run
-
-#+BEGIN_SRC shell -n
+Install [[https://github.com/hlissner/doom-emacs][doom emacs,]] using
+#+BEGIN_SRC shell
+git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+#+END_SRC
+then run
+#+BEGIN_SRC shell
 mv .doom.d .doom.d.bak
 git clone https://github.com/haditim/.doom.d
 .emacs.d/bin/doom refresh

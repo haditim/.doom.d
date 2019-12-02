@@ -32,3 +32,5 @@
 ;; autocomplete cycle through completions
 (map! :map ac-completing-map "C-j" #'ac-next)
 (map! :map ac-completing-map "C-k" #'ac-previous)
+;; issue: https://github.com/hlissner/doom-emacs/issues/2135
+(fset 'battery-update #'ignore)
