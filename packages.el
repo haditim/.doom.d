@@ -14,4 +14,6 @@
 ;; (package! jedi)
 (package! yasnippet)
 (package! arduino-mode)
-(package! yapf)
+(package! docker)
+(package! dockerfile-mode)
+(package! docker-compose-mode)
