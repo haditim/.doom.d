@@ -41,6 +41,11 @@
   :desc "Docker-compose"  "c" #'docker-compose
   :desc "Docker"  "d" #'docker)
  )
+;; rgrep in project
+(map! :leader
+ (:prefix-map ("s" . "search")
+        :desc "rgrep in project" "r" #'rgrep)
+ )
 
 ;; Custom yasnippets: https://emacs.stackexchange.com/questions/19422/library-for-automatically-inserting-python-docstring-in-google-style
 (defun python-args-to-google-docstring (text &optional make-fields)
