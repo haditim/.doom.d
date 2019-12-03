@@ -17,3 +17,4 @@
 (package! docker)
 (package! dockerfile-mode)
 (package! docker-compose-mode)
+(package! ob-http)  ;; org-babel http for REST requests
