@@ -67,3 +67,6 @@
           (list "" "Args:" formatted-args)
           indent)
        "\n"))))
+
+;; bash for shell https://emacs.stackexchange.com/questions/28647/how-do-i-change-the-default-shell-for-shell-command
+(setq explicit-shell-file-name "/bin/bash")
