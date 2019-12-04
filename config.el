@@ -47,6 +47,20 @@
         :desc "rgrep in project" "r" #'rgrep)
  )
 
+;; rgrep ignore some folders
+(eval-after-load 'grep
+  '(progn
+     (add-to-list 'grep-find-ignored-directories "tmp")
+     (add-to-list 'grep-find-ignored-directories "node_modules")
+     (add-to-list 'grep-find-ignored-directories ".bundle")
+     (add-to-list 'grep-find-ignored-directories "auto")
+     (add-to-list 'grep-find-ignored-directories "env")
+     (add-to-list 'grep-find-ignored-directories "venv")
+     (add-to-list 'grep-find-ignored-directories ".pytest_cache")
+     (add-to-list 'grep-find-ignored-directories "elpa")))
+(setq wgrep-enable-key (kbd "C-c C-c"))
+(add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines 1)))
+
 ;; Custom yasnippets: https://emacs.stackexchange.com/questions/19422/library-for-automatically-inserting-python-docstring-in-google-style
 (defun python-args-to-google-docstring (text &optional make-fields)
   "Return a reST docstring format for the python arguments in yas-text."
