@@ -14,7 +14,6 @@
 (package! pip-requirements)
 (package! python-pytest)
 (package! company-anaconda)
-(package! jedi)
 (package! company-jedi)
 (package! elpy-module-company)
 (package! yasnippet)
