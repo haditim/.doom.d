@@ -12,8 +12,8 @@
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
 ;; Jedi
-;; (add-hook 'python-mode-hook 'jedi:setup)
-;; (setq jedi:complete-on-dot t)                 ; optional
+(add-hook 'python-mode-hook 'jedi:setup)
+(setq jedi:complete-on-dot t)                 ; optional
 
 (setq-default flycheck-flake8-maximum-line-length 120)
 ;; enable elpy
