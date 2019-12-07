@@ -11,7 +11,12 @@
 (package! elpy)
 (package! py-autopep8)                     ;; Run autopep8 on save
 (package! blacken)
+(package! pip-requirements)
+(package! python-pytest)
+(package! company-anaconda)
 (package! jedi)
+(package! company-jedi)
+(package! elpy-module-company)
 (package! yasnippet)
 (package! arduino-mode)
 (package! docker)
