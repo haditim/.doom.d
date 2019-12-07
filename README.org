@@ -12,6 +12,13 @@ mv .doom.d .doom.d.bak
 git clone https://github.com/haditim/.doom.d
 .emacs.d/bin/doom refresh
 #+END_SRC
+** Rust
+If you want to code in Rust, after installing ~rustup~ run
+#+BEGIN_SRC shell
+rustup toolchain add nightly
+rustup component add rust-src
+cargo +nightly install racer
+#+END_SRC
 * Useful reads
 If you never used vim or Emacs, read these up
 - [[https://github.com/hlissner/doom-emacs/blob/develop/docs/index.org][Doom Emacs documentation]]
