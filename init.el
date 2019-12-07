@@ -15,9 +15,8 @@
        :completion
        (company          ; the ultimate code completion backend
         +tng
-        +jedi
-        +elpy
         +auto            ; as-you-type code completion
+        +rust
         ;; +childframe
         +files
         )     ; a nicer company UI. Emacs +26 only!

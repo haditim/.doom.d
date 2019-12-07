@@ -12,12 +12,23 @@
 (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
 ;; Jedi
-(add-hook 'python-mode-hook 'jedi:setup)
-(setq jedi:complete-on-dot t)                 ; optional
+;; (add-hook 'python-mode-hook 'jedi:setup)
+;; (setq jedi:complete-on-dot t)                 ; optional
 
 (setq-default flycheck-flake8-maximum-line-length 120)
-;; enable elpy
+
+;; enable elpy and anaconda
 (elpy-enable)
+(add-hook 'python-mode-hook 'anaconda-mode)
+(add-hook 'python-mode-hook 'elpy-mode)
+
+;; company backends
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-anaconda)
+  (add-to-list 'company-backends 'company-capf)
+  (add-to-list 'company-backends 'company-yasnippet)
+  (add-to-list 'company-backends 'elpy-module-company))
+
 
 ;; Enable Flycheck
 (when (require 'flycheck nil t)
