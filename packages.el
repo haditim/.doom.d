@@ -11,7 +11,7 @@
 (package! elpy)
 (package! py-autopep8)                     ;; Run autopep8 on save
 (package! blacken)
-;; (package! jedi)
+(package! jedi)
 (package! yasnippet)
 (package! arduino-mode)
 (package! docker)
