@@ -97,10 +97,19 @@
 (setq explicit-shell-file-name "/bin/bash")
 
 ;; multiple cursor
-(global-set-key (kbd "C->") 'mc/mark-next-like-this)
-(global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
-(global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;; Should focus on evil-mc rather than mc
+;; (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+;; (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;; (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
 
-(global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+;; from https://github.com/hlissner/doom-emacs/issues/2174
+(defun make-cursor-here-then-move (event)
+  (interactive "e")
+  (save-excursion
+    (let (mouse-drag-and-drop-region)
+      (mouse-drag-region event))
+    (evil-mc-make-cursor-here)))
 
-(global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
+(map! "<C-M-mouse-1>" #'make-cursor-here-then-move)
