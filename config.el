@@ -50,9 +50,7 @@
 (map! :map ac-completing-map "C-k" #'ac-previous)
 ;; Docker-compose
 (map! :leader
- (:prefix-map ("d" . "Docker")
-  :desc "Docker-compose"  "c" #'docker-compose
-  :desc "Docker"  "d" #'docker)
+ (:desc "Docker"  "d" #'docker)
  )
 ;; rgrep in project
 (map! :leader
