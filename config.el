@@ -48,6 +48,10 @@
 ;; autocomplete cycle through completions
 (map! :map ac-completing-map "C-j" #'ac-next)
 (map! :map ac-completing-map "C-k" #'ac-previous)
+
+;; company pick from list
+(define-key company-active-map (kbd "C-SPC") #'company-complete-selection)
+
 ;; Docker-compose
 (map! :leader
  (:desc "Docker"  "d" #'docker)
@@ -113,3 +117,6 @@
     (evil-mc-make-cursor-here)))
 
 (map! "<C-M-mouse-1>" #'make-cursor-here-then-move)
+
+;; Lisp nesting exceeds error
+(setq max-lisp-eval-depth 100000)
