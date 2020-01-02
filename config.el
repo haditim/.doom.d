@@ -27,7 +27,6 @@
 (defun my/python-mode-hook ()
   (add-to-list 'company-backends 'company-anaconda)
   (add-to-list 'company-backends 'company-capf)
-  (add-to-list 'company-backends 'company-tabnine)
   (add-to-list 'company-backends 'company-jedi)
   (add-to-list 'company-backends 'company-yasnippet)
   (add-to-list 'company-backends 'elpy-module-company))
