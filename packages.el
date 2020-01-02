@@ -16,7 +16,6 @@
 (package! direnv)
 (package! company-anaconda)
 (package! company-jedi)
-(package! company-tabnine)
 (package! elpy-module-company)
 (package! yasnippet)
 (package! arduino-mode)
