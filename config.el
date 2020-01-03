@@ -20,9 +20,6 @@
 ;; (setq jedi:complete-on-dot t)                 ; optional
 (add-hook 'python-mode-hook 'anaconda-mode)
 
-
-(add-to-list 'company-backends 'company-lsp)
-
 ;; company backends
 (defun my/python-mode-hook ()
   (add-to-list 'company-backends 'company-anaconda)
