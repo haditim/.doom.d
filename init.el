@@ -17,7 +17,7 @@
         +tng
         +auto            ; as-you-type code completion
         +rust
-        +lsp
+        ;; +lsp
         ;; +childframe
         +files
         )     ; a nicer company UI. Emacs +26 only!
