@@ -9,7 +9,7 @@
 )
 
 ;; Place your private configuration here
-(add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
+;; (add-hook 'python-mode-hook 'py-autopep8-enable-on-save)
 
 ;; change max line length for python
 (setq-default flycheck-flake8-maximum-line-length 120)

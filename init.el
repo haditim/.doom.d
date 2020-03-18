@@ -84,8 +84,6 @@
        ;;editorconfig      ; let someone else argue about tabs vs spaces
        ;;ein               ; tame Jupyter notebooks with emacs
        (eval +overlay)     ; run code, run (also, repls)
-       flycheck          ; tasing you for every semicolon you forget
-       flyspell          ; tasing you for misspelling mispelling
        ;;gist              ; interacting with github gists
        (lookup           ; helps you navigate your code and documentation
         +docsets)        ; ...or in Dash docsets locally
@@ -160,6 +158,10 @@
        ;;terra             ; Earth and Moon in alignment for performance.
        ;;web               ; the tubes
 
+       :checkers
+       syntax          ; tasing you for every semicolon you forget
+       spell          ; tasing you for misspelling mispelling
+
        :email
        ;;(mu4e +gmail)
        ;;notmuch
@@ -184,7 +186,7 @@
  '(custom-enabled-themes (quote (doom-gruvbox)))
  '(custom-safe-themes
    (quote
-    ("15ba8081651869ec689c9004288bed79003de5b4ee9c51a9d4a208d9e3439706" default))))
+    ("845103fcb9b091b0958171653a4413ccfad35552bc39697d448941bcbe5a660d" "15ba8081651869ec689c9004288bed79003de5b4ee9c51a9d4a208d9e3439706" default))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
