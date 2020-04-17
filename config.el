@@ -104,13 +104,20 @@
 ;; (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
 ;; (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
 ;; (global-set-key (kbd "C-S-<mouse-1>") 'mc/add-cursor-on-click)
-;;
+
 ;; Ctrl+vim navigation keys in the evil edit mode
 (map! :i "C-l" #'forward-char
       :i "C-h" #'backward-char
       :i "C-k" #'previous-line
       :i "C-j" #'next-line)
 
+;; ido bindings
+(defun bind-ido-keys ()
+  "Keybindings for ido mode."
+  (define-key ido-completion-map (kbd "C-j") 'ido-next-match)
+  (define-key ido-completion-map (kbd "C-k")   'ido-prev-match))
+
+(add-hook 'ido-setup-hook #'bind-ido-keys)
 ;; from https://github.com/hlissner/doom-emacs/issues/2174
 (defun make-cursor-here-then-move (event)
   (interactive "e")
