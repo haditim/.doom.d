@@ -19,6 +19,15 @@ rustup toolchain add nightly
 rustup component add rust-src
 cargo +nightly install racer
 #+END_SRC
+** Angular/Typescript
+For having ng2 LSP capabilities run
+#+BEGIN_SRC shell
+npm install -g @angular/language-service@next typescript  @angular/language-server
+#+END_SRC
+** VScode-like html auto completion
+#+BEGIN_SRC shell
+npm install --global vscode-html-languageserver-bin
+#+END_SRC
 * Useful reads
 If you never used vim or Emacs, read these up
 - [[https://github.com/hlissner/doom-emacs/blob/develop/docs/index.org][Doom Emacs documentation]]
