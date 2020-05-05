@@ -24,6 +24,8 @@ For having ng2 LSP capabilities run
 #+BEGIN_SRC shell
 npm install -g @angular/language-service@next typescript  @angular/language-server
 #+END_SRC
+** Javascript
+Install prettier for prettier-js to work
 ** VScode-like html auto completion
 #+BEGIN_SRC shell
 npm install --global vscode-html-languageserver-bin
