@@ -10,6 +10,9 @@
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
 (add-hook 'after-init-hook 'global-company-mode)
 
+;; ** Outshine mini mode for all major modes
+(add-hook 'prog-mode-hook 'outshine-mode)
+
 ;; * Languages
 
 ;; ** Python

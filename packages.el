@@ -25,3 +25,4 @@
 (package! ng2-mode)
 (package! prettier-js)
 (package! outshine)
+(package! format-all)
