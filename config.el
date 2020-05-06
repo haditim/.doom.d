@@ -3,7 +3,7 @@
 ;; ** Start maximised (cross-platf)
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
 (setq
-  doom-theme 'doom-one
+  doom-theme 'doom-gruvbox
   display-line-numbers-type 'relative
 )
 (add-hook 'after-init-hook 'global-company-mode)
