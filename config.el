@@ -83,7 +83,7 @@
 (add-hook 'ido-setup-hook #'bind-ido-keys)
 
 ;; Misc
-
+(setq confirm-kill-emacs nil)
 (setq org-directory "~/Documents/ORG/")
 
 ;; ** rgrep ignore some folders
