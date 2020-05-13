@@ -51,6 +51,7 @@
 (package! blacken)
 (package! pip-requirements)
 (package! python-pytest)
+(package! python-pylint)
 (package! direnv)
 (package! yasnippet)
 (package! arduino-mode)
