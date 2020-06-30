@@ -82,6 +82,11 @@
 
 (add-hook 'ido-setup-hook #'bind-ido-keys)
 
+;; ** expand region
+(map! :leader
+ (:desc "Expand region"  "v" #'er/expand-region)
+ )
+
 ;; Misc
 (setq confirm-kill-emacs nil)
 (setq org-directory "~/Documents/ORG/")
