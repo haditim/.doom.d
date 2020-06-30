@@ -52,6 +52,7 @@
 (package! pip-requirements)
 (package! python-pytest)
 (package! python-pylint)
+(package! live-py-mode)
 (package! py-yapf)
 (package! direnv)
 (package! yasnippet)
