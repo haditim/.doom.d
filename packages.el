@@ -57,9 +57,7 @@
 (package! direnv)
 (package! yasnippet)
 (package! arduino-mode)
-(package! docker)
 (package! dockerfile-mode)
-(package! docker-compose-mode)
 (package! ob-http)  ;; org-babel http for REST requests
 (package! ng2-mode)
 (package! prettier-js)
