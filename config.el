@@ -3,9 +3,9 @@
 ;; ** Start maximised (cross-platf)
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
 (setq
-  doom-theme 'doom-gruvbox
-  display-line-numbers-type 'relative
-)
+ doom-theme 'doom-gruvbox
+ display-line-numbers-type 'relative
+ )
 (add-hook 'after-init-hook 'global-company-mode)
 
 ;; ** Outshine mini mode for all major modes
@@ -22,20 +22,20 @@
   "Return a reST docstring format for the python arguments in yas-text."
   (let* ((indent (concat "\n" (make-string (current-column) 32)))
          (args (python-split-args text))
-     (nr 0)
+         (nr 0)
          (formatted-args
-      (mapconcat
-       (lambda (x)
-         (concat "   " (nth 0 x)
-             (if make-fields (format " ${%d:arg%d}" (cl-incf nr) nr))
-             (if (nth 1 x) (concat " \(default " (nth 1 x) "\)"))))
-       args
-       indent)))
+          (mapconcat
+           (lambda (x)
+             (concat "   " (nth 0 x)
+                     (if make-fields (format " ${%d:arg%d}" (cl-incf nr) nr))
+                     (if (nth 1 x) (concat " \(default " (nth 1 x) "\)"))))
+           args
+           indent)))
     (unless (string= formatted-args "")
       (concat
        (mapconcat 'identity
-          (list "" "Args:" formatted-args)
-          indent)
+                  (list "" "Args:" formatted-args)
+                  indent)
        "\n"))))
 
 ;; ** Javascript
@@ -59,14 +59,14 @@
 ;; ** Docker-compose
 
 (map! :leader
- (:desc "Docker"  "d" #'docker)
- )
+      (:desc "Docker"  "d" #'docker)
+      )
 
 ;; ** rgrep in project
 (map! :leader
- (:prefix-map ("s" . "search")
-        :desc "rgrep in project" "r" #'rgrep)
- )
+      (:prefix-map ("s" . "search")
+       :desc "rgrep in project" "r" #'rgrep)
+      )
 
 ;; ** Ctrl+vim navigation keys in the evil edit mode
 (map! :i "C-l" #'forward-char
@@ -84,8 +84,8 @@
 
 ;; ** expand region
 (map! :leader
- (:desc "Expand region"  "v" #'er/expand-region)
- )
+      (:desc "Expand region"  "v" #'er/expand-region)
+      )
 
 ;; Misc
 (setq confirm-kill-emacs nil)
