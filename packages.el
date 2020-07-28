@@ -59,6 +59,6 @@
 (package! arduino-mode)
 (package! dockerfile-mode)
 (package! ob-http)  ;; org-babel http for REST requests
-(package! ng2-mode)
+;; (package! ng2-mode)   ;; replaced by typescript lsp
 (package! prettier-js)
 (package! outshine)
