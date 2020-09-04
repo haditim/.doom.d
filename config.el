@@ -38,12 +38,6 @@
                   indent)
        "\n"))))
 
-;; ** Javascript
-
-;; *** Javascript prettier
-(add-hook 'js2-mode-hook 'prettier-js-mode)
-(add-hook 'web-mode-hook 'prettier-js-mode)
-
 ;; * Keybinds
 
 ;; ** Autocomplete cycle through completions

@@ -40,3 +40,5 @@ If you never used vim or Emacs, read these up
 - [[https://github.com/hlissner/doom-emacs/blob/develop/docs/index.org][Doom Emacs documentation]]
 - [[https://noelwelsh.com/posts/2019-01-10-doom-emacs.html][Doom Emacs Workflows]] by Noel Welsh
 - [[https://giuliolodi.dev/blog/2019-05-06-flutter-on-spacemacs/][Flutter in Spacemacs]] by Giulio Lodi
+- [[https://github.com/hlissner/doom-emacs/blob/develop/modules/editor/evil/config.el#L413-L460][vim-unimpaired provided by doom]]
+- [[https://github.com/hlissner/doom-emacs/blob/develop/modules/editor/evil/README.org#ported-vim-plugins][Ported vim plugins]] in doom docs
