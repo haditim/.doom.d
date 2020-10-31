@@ -108,8 +108,9 @@
 
        :lang
        ;;agda              ; types of types of types of types...
-       ;;cc                ; C/C++/Obj-C madness
-       ;;clojure           ; java with a lisp
+       arduino
+       (cc +lsp)                ; C/C++/Obj-C madness
+       (clojure +lsp)           ; java with a lisp
        ;;common-lisp       ; if you've seen one lisp, you've seen them all
        ;;coq               ; proofs-as-programs
        ;;crystal           ; ruby at the speed of c
@@ -117,7 +118,7 @@
        data              ; config/data formats
        (dart +flutter +lsp)   ; paint ui and not much else
        ;;elixir            ; erlang done right
-       ;;elm               ; care for a cup of TEA?
+       elm               ; care for a cup of TEA?
        emacs-lisp        ; drown in parentheses
        ;;erlang            ; an elegant language for a more civilized age
        ;;ess               ; emacs speaks statistics
