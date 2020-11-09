@@ -47,7 +47,7 @@
 ;(package! builtin-package :recipe (:branch "develop"))
 
 (package! flycheck)
-(package! py-autopep8)                     ;; Run autopep8 on save
+(package! py-autopep8)
 (package! blacken)
 (package! pip-requirements)
 (package! python-pytest)
@@ -58,7 +58,8 @@
 (package! yasnippet)
 (package! arduino-mode)
 (package! dockerfile-mode)
-(package! ob-http)  ;; org-babel http for REST requests
+(package! ob-http)              ;; org-babel http for REST requests
 (package! nginx-mode)
 (package! prettier-js)
 (package! outshine)
+(package! eww)                  ;; emacs web browser
