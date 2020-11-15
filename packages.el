@@ -62,4 +62,3 @@
 (package! nginx-mode)
 (package! prettier-js)
 (package! outshine)
-(package! eww)                  ;; emacs web browser
