@@ -3,6 +3,9 @@
 ;; ** Start maximised (cross-platf)
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
 
+;; ** Don't ask to quit
+(setq confirm-kill-emacs nil)
+
 ;; ** doom-gruvbox for the theme
 (setq
  doom-theme 'doom-gruvbox
@@ -33,12 +36,14 @@
       :i "C-p" #'previous-line
       :i "C-n" #'next-line)
 
+;; ** jump to paranthesis with tab
+(map! :n [tab] 'evil-jump-item)
+
 ;; ** expand region
 (map! :leader
       (:desc "Expand region"  "v" #'er/expand-region))
 
 ;; * Misc
-(setq confirm-kill-emacs nil)
 (setq org-directory "~/Documents/ORG/")
 
 ;; ** rgrep ignore some folders
