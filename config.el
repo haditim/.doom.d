@@ -6,6 +6,10 @@
 ;; ** Don't ask to quit
 (setq confirm-kill-emacs nil)
 
+;; ** Undo-tree everywhere
+(global-undo-tree-mode)
+(evil-set-undo-system 'undo-tree)
+
 ;; ** doom-gruvbox for the theme
 (setq
  doom-theme 'doom-gruvbox
