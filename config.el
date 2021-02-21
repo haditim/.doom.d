@@ -6,6 +6,12 @@
 ;; ** Don't ask to quit
 (setq confirm-kill-emacs nil)
 
+;; ** Modeline adjustments
+(setq doom-modeline-major-mode-icon t)
+
+;; ** lsp always show breadcrumb
+(setq lsp-headerline-breadcrumb-enable t)
+
 ;; ** Undo-tree everywhere
 (global-undo-tree-mode)
 (evil-set-undo-system 'undo-tree)
@@ -13,11 +19,18 @@
 ;; ** doom-gruvbox for the theme
 (setq
  doom-theme 'doom-gruvbox
- display-line-numbers-type 'relative
- )
+ display-line-numbers-type 'relative)
 
 ;; ** Outshine mini mode for all major modes
 (add-hook 'prog-mode-hook 'outshine-mode)
+
+
+;; * Languages
+
+;; ** Python
+;; *** Enable dap-mode for python
+(add-hook 'python-mode (require 'dap-python))
+
 
 ;; * Keybinds
 
@@ -46,6 +59,7 @@
 ;; ** expand region
 (map! :leader
       (:desc "Expand region"  "v" #'er/expand-region))
+
 
 ;; * Misc
 (setq org-directory "~/Documents/ORG/")
