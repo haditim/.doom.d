@@ -62,3 +62,6 @@
 (package! nginx-mode)
 (package! prettier-js)
 (package! outshine)
+(package! undo-tree)
+(package! exwm)                 ;; emacs as an OS
+(package! dap-mode)             ;; debugging in emacs
