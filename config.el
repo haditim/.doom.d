@@ -12,10 +12,6 @@
 ;; ** lsp always show breadcrumb
 (setq lsp-headerline-breadcrumb-enable t)
 
-;; ** Undo-tree everywhere
-(global-undo-tree-mode)
-(evil-set-undo-system 'undo-tree)
-
 ;; ** doom-gruvbox for the theme
 (setq
  doom-theme 'doom-gruvbox
