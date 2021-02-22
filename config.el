@@ -20,6 +20,9 @@
 ;; ** Outshine mini mode for all major modes
 (add-hook 'prog-mode-hook 'outshine-mode)
 
+;; ** Font
+(setq doom-font (font-spec :family "Source Code Pro Medium"))
+
 
 ;; * Languages
 
