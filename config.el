@@ -17,6 +17,10 @@
  doom-theme 'doom-gruvbox
  display-line-numbers-type 'relative)
 
+;; ** error in treemacs icons (still not fixed with this)
+(after! treemacs
+  (treemacs-load-theme "Default"))
+
 ;; ** Outshine mini mode for all major modes
 (add-hook 'prog-mode-hook 'outshine-mode)
 
