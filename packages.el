@@ -64,3 +64,4 @@
 (package! outshine)
 (package! exwm)                 ;; emacs as an OS
 (package! dap-mode)             ;; debugging in emacs
+(package! parinfer-rust-mode)
