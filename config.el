@@ -81,3 +81,25 @@
      (add-to-list 'grep-find-ignored-directories "elpa")))
 (setq wgrep-enable-key (kbd "C-c C-c"))
 (add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines 1)))
+
+;; ** dired hide files toggle on M-h
+(setq my-dired-ls-switches "-alh --ignore=.* --ignore=\\#* --ignore=*~")
+
+(setq my-dired-switch 1)
+
+(add-hook 'dired-mode-hook
+        (lambda ()
+        "Set the right mode for new dired buffers."
+        (when (= my-dired-switch 1)
+        (dired-sort-other my-dired-ls-switches))))
+
+(add-hook 'dired-mode-hook
+        (lambda ()
+        (define-key dired-mode-map (kbd "M-h")
+        (lambda ()
+                "Toggle between hide and show."
+                (interactive)
+                (setq my-dired-switch (- my-dired-switch))
+                (if (= my-dired-switch 1)
+                (dired-sort-other my-dired-ls-switches)
+                (dired-sort-other "-alh"))))))
