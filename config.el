@@ -40,14 +40,12 @@
 
 ;; ** Docker-compose
 (map! :leader
-      (:desc "Docker"  "d" #'docker)
-      )
+      (:desc "Docker"  "d" #'docker))
 
 ;; ** rgrep in project
 (map! :leader
       (:prefix-map ("s" . "search")
-       :desc "rgrep in project" "r" #'rgrep)
-      )
+       :desc "rgrep in project" "r" #'rgrep))
 
 ;; ** Ctrl+vim navigation keys in the evil edit mode
 (map! :i "C-l" #'forward-char
@@ -67,8 +65,7 @@
 ;; ** rename buffer
 (map! :leader
       (:prefix "b"
-       :desc "Rename the buffer" "R" #'rename-buffer)
-      )
+       :desc "Rename the buffer" "R" #'rename-buffer))
 
 
 ;; * Misc
