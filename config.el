@@ -64,6 +64,12 @@
 (map! :leader
       (:desc "Expand region"  "v" #'er/expand-region))
 
+;; ** rename buffer
+(map! :leader
+      (:prefix "b"
+       :desc "Rename the buffer" "R" #'rename-buffer)
+      )
+
 
 ;; * Misc
 (setq org-directory "~/Documents/ORG/")
@@ -88,18 +94,18 @@
 (setq my-dired-switch 1)
 
 (add-hook 'dired-mode-hook
-        (lambda ()
-        "Set the right mode for new dired buffers."
-        (when (= my-dired-switch 1)
-        (dired-sort-other my-dired-ls-switches))))
+          (lambda ()
+            "Set the right mode for new dired buffers."
+            (when (= my-dired-switch 1)
+              (dired-sort-other my-dired-ls-switches))))
 
 (add-hook 'dired-mode-hook
-        (lambda ()
-        (define-key dired-mode-map (kbd "M-h")
-        (lambda ()
+          (lambda ()
+            (define-key dired-mode-map (kbd "M-h")
+              (lambda ()
                 "Toggle between hide and show."
                 (interactive)
                 (setq my-dired-switch (- my-dired-switch))
                 (if (= my-dired-switch 1)
-                (dired-sort-other my-dired-ls-switches)
-                (dired-sort-other "-alh"))))))
+                    (dired-sort-other my-dired-ls-switches)
+                  (dired-sort-other "-alh"))))))
