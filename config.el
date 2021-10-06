@@ -29,6 +29,11 @@
 (setq doom-font (font-spec :family "Dejavu Sans Mono" :size 15)
       doom-big-font (font-spec :family "Dejavu Sans Mono"  :size 21))
 
+;; ** Ansi colors in buffer
+(defun display-ansi-colors ()
+  (interactive)
+  (ansi-color-apply-on-region (point-min) (point-max)))
+
 
 ;; * Languages
 
