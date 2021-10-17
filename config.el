@@ -1,6 +1,6 @@
 ;; * Look and feel
 
-;; ** Start maximised (cross-platf)
+;; ** Start maximized (cross-platf)
 (add-hook 'window-setup-hook 'toggle-frame-maximized t)
 
 ;; ** Don't ask to quit
@@ -29,25 +29,7 @@
 (setq doom-font (font-spec :family "Dejavu Sans Mono" :size 15)
       doom-big-font (font-spec :family "Dejavu Sans Mono"  :size 21))
 
-;; ** Ansi colors in buffer
-(defun display-ansi-colors ()
-  (interactive)
-  (ansi-color-apply-on-region (point-min) (point-max)))
-
-
-;; * Languages
-
-;; ** Python
-;; *** Enable dap-mode for python
-(add-hook 'python-mode (require 'dap-python))
-
-
 ;; * Keybinds
-
-;; ** Docker-compose
-(map! :leader
-      (:desc "Docker"  "d" #'docker))
-
 ;; ** rgrep in project
 (map! :leader
       (:prefix-map ("s" . "search")
@@ -68,6 +50,7 @@
 (map! :leader
       (:desc "Expand region"  "v" #'er/expand-region))
 
+
 ;; ** rename buffer
 (map! :leader
       (:prefix "b"
@@ -85,6 +68,7 @@
      (add-to-list 'grep-find-ignored-directories ".bundle")
      (add-to-list 'grep-find-ignored-directories "auto")
      (add-to-list 'grep-find-ignored-directories "env")
+     (add-to-list 'grep-find-ignored-directories ".env")
      (add-to-list 'grep-find-ignored-directories "venv")
      (add-to-list 'grep-find-ignored-directories ".pytest_cache")
      (add-to-list 'grep-find-ignored-directories "elpa")))
@@ -112,3 +96,9 @@
                 (if (= my-dired-switch 1)
                     (dired-sort-other my-dired-ls-switches)
                   (dired-sort-other "-alh"))))))
+
+
+;; ** Ansi colors in buffer
+(defun display-ansi-colors ()
+  (interactive)
+  (ansi-color-apply-on-region (point-min) (point-max)))
