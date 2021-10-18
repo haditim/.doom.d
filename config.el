@@ -20,7 +20,8 @@
 ;; ** error in treemacs icons
 (doom-themes-treemacs-config)
 (after! treemacs
-  (treemacs-load-theme "doom-colors"))
+  (treemacs-load-theme "doom-colors")
+  (setq treemacs-follow-mode t))
 
 ;; ** Outshine mini mode for all major modes
 (add-hook 'prog-mode-hook 'outshine-mode)
