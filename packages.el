@@ -46,7 +46,6 @@
 ;; our package manager can't deal with; see raxod502/straight.el#279)
 ;(package! builtin-package :recipe (:branch "develop"))
 
-(package! flycheck)
 (package! py-autopep8)
 (package! blacken)
 (package! pip-requirements)
@@ -54,13 +53,10 @@
 (package! python-pylint)
 (package! live-py-mode)
 (package! py-yapf)
-(package! direnv)
-(package! yasnippet)
 (package! arduino-mode)
 (package! dockerfile-mode)
 (package! ob-http)              ;; org-babel http for REST requests
 (package! nginx-mode)
-(package! prettier-js)
 (package! outshine)
 (package! android-mode)
 (package! dired-du)

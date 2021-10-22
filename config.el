@@ -1,7 +1,7 @@
 ;; * Look and feel
 
-;; ** Start maximized (cross-platf)
-(add-hook 'window-setup-hook 'toggle-frame-maximized t)
+;; ** Start maximized
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 
 ;; ** Don't ask to quit
 (setq confirm-kill-emacs nil)
@@ -57,8 +57,7 @@
       (:prefix "b"
        :desc "Rename the buffer" "R" #'rename-buffer))
 
-
-;; * Misc
+;; Misc
 (setq org-directory "~/Documents/ORG/")
 
 ;; ** rgrep ignore some folders
