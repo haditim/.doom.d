@@ -57,7 +57,11 @@
       (:prefix "b"
        :desc "Rename the buffer" "R" #'rename-buffer))
 
-;; Misc
+;; ** winner undo, redo (undo window configuration)
+(map! "C-c <left>" 'winner-undo
+      "C-c <right>" 'winner-redo)
+
+;; * Misc
 (setq org-directory "~/Documents/ORG/")
 
 ;; ** rgrep ignore some folders
