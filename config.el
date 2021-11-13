@@ -84,6 +84,9 @@
 
 (setq my-dired-switch 1)
 
+;; ** dired don't ask questions about size
+(setq large-file-warning-threshold nil)
+
 (add-hook 'dired-mode-hook
           (lambda ()
             "Set the right mode for new dired buffers."
