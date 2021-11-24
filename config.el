@@ -79,22 +79,6 @@
 (setq wgrep-enable-key (kbd "C-c C-c"))
 (add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines 1)))
 
-;; ** consult-grep ignore the same folders
-(setq consult-grep-args
-      "grep --null --line-buffered --color=never --ignore-case\
-   --exclude-dir=.git\
-   --exclude-dir=tmp\
-   --exclude-dir=node_modules\
-   --exclude-dir=.bundle\
-   --exclude-dir=auto\
-   --exclude-dir=env\
-   --exclude-dir=.env\
-   --exclude-dir=venv\
-   --exclude-dir=.pytest_cache\
-   --exclude-dir=__pycache__\
-   --exclude-dir=elpa\
-        --line-number -I -r .")
-
 ;; ** dired hide files toggle on M-h
 (setq my-dired-ls-switches "-alh --ignore=.* --ignore=\\#* --ignore=*~")
 
