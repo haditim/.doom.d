@@ -61,6 +61,11 @@
 (map! "C-c <left>" 'winner-undo
       "C-c <right>" 'winner-redo)
 
+;; ** drag text up-down
+(map! :n "M-p" 'drag-stuff-up
+      :n "M-n" 'drag-stuff-down)
+
+
 ;; * Misc
 (setq org-directory "~/Documents/ORG/")
 
