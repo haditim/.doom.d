@@ -58,6 +58,7 @@
 
        :editor
        (evil +everywhere); come to the dark side, we have cookies
+       ;;(meow +qwerty +override +keypad)
        file-templates    ; auto-snippets for empty files
        fold              ; (nigh) universal code folding
        format
@@ -106,7 +107,7 @@
        (lookup
         +dictionary
         +offline)          ; navigate your code and its documentation
-       lsp                 ; language server
+       (lsp +eglot)                 ; language server
        ;;macos             ; MacOS-specific commands
        magit             ; a git porcelain for Emacs
        make              ; run make tasks from Emacs
