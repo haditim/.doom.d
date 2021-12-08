@@ -69,6 +69,9 @@
 ;; * Misc
 (setq org-directory "~/Documents/ORG/")
 
+;; ** enable eldoc-box by default when eglot loads
+(add-hook 'eglot--managed-mode-hook #'eldoc-box-hover-mode t)
+
 ;; ** rgrep ignore some folders
 (eval-after-load 'grep
   '(progn

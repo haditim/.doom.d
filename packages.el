@@ -60,3 +60,4 @@
 (package! outshine)
 (package! android-mode)
 (package! dired-du)
+(package! eldoc-box)
