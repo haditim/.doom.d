@@ -117,3 +117,32 @@
 (defun display-ansi-colors ()
   (interactive)
   (ansi-color-apply-on-region (point-min) (point-max)))
+
+;; ** undo-tree everywhere
+(setq global-undo-tree-mode t)
+
+;; ** EAF
+;; Still too slow for my taste
+;; (add-load-path! "~/.doomemacs.d/site-lisp/emacs-application-framework/")
+;; (use-package! eaf
+;;   :config
+;;         (require 'eaf)
+;;         (require 'eaf-browser)
+;;         (require 'eaf-pdf-viewer)
+;;         (require 'eaf-org-previewer)
+;;         (require 'eaf-terminal)
+;;         (require 'eaf-video-player)
+;;         (require 'eaf-markdown-previewer)
+;;         (require 'eaf-image-viewer)
+;;         (setq browse-url-browser-function 'eaf-open-browser)
+;;         (setq eaf-browser-default-search-engine "startpage")
+;;         (setq eaf-browse-blank-page-url "https://startpage.com")
+;;         (setq eaf-browser-enable-adblocker "true")
+;;         (setq eaf-browser-continue-where-left-off t)
+;;         (setq eaf-browser-default-zoom "3")
+;;         (when doom-big-font-mode)
+;;         (setq eaf-browser-default-zoom 1.5)
+;;         (setq eaf-mindmap-dark-mode "follow")
+;;         (setq eaf-browser-dark-mode "force")
+;;         (setq eaf-terminal-dark-mode "force")
+;;         (setq eaf-pdf-dark-mode "force"))
