@@ -65,6 +65,10 @@
 (map! :n "M-p" 'drag-stuff-up
       :n "M-n" 'drag-stuff-down)
 
+;; ** stop compilation
+(map! :leader
+      (:prefix "c"
+       :desc "Kill compilation" "K" #'kill-compilation))
 
 ;; * Misc
 (setq org-directory "~/Documents/ORG/")
