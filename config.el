@@ -14,7 +14,7 @@
 
 ;; ** doom-gruvbox for the theme
 (setq
- doom-theme 'doom-gruvbox
+ doom-theme 'doom-molokai
  display-line-numbers-type 'relative)
 
 ;; ** error in treemacs icons
