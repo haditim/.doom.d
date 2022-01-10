@@ -12,6 +12,13 @@ mv .doom.d .doom.d.bak
 git clone https://github.com/haditim/.doom.d
 .emacs.d/bin/doom refresh
 #+END_SRC
+
+** Python
+- Install [[https://github.com/python-lsp/python-lsp-server][pylsp]] ~pip install 'python-lsp-server[all]'~
+- Install [[https://github.com/Richardk2n/pylsp-mypy][pylsp-mypy]] ~pip install pylsp-mypy~ for type checking
+- Install [[https://github.com/python-rope/pylsp-rope][pylsp-rope]] ~pip install pylsp-rope~ for more refactoring possibilities and code actions
+- Install [[https://github.com/python-lsp/python-lsp-black][pylsp-black]] ~pip install python-lsp-black~ for formatting using yapf or blacken
+
 ** Rust
 If you want to code in Rust, after installing ~rustup~ run
 #+BEGIN_SRC shell
