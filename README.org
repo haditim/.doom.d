@@ -16,7 +16,7 @@ git clone https://github.com/haditim/.doom.d
 ** Python
 - Install [[https://github.com/python-lsp/python-lsp-server][pylsp]] ~pip install 'python-lsp-server[all]'~
 - Install [[https://github.com/Richardk2n/pylsp-mypy][pylsp-mypy]] ~pip install pylsp-mypy~ for type checking
-- Install [[https://github.com/python-rope/pylsp-rope][pylsp-rope]] ~pip install pylsp-rope~ for more refactoring possibilities and code actions
+- Install [[https://github.com/python-rope/pylsp-rope][pylsp-rope]] ~pip install pylsp-rope~ for more refactoring possibilities and code actions. This slowed my emacs significantly, if you see the same, just uninstall it ~pip uninstall pylsp-rope~.
 - Install [[https://github.com/python-lsp/python-lsp-black][pylsp-black]] ~pip install python-lsp-black~ for formatting using yapf or blacken
 
 ** Rust
