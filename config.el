@@ -57,6 +57,17 @@
       (:prefix "b"
        :desc "Rename the buffer" "R" #'rename-buffer))
 
+;; ** debugger
+(map! :leader
+      (:prefix "o"
+       :desc "Debugger start last" "l" #'+debugger/start-last
+       :desc "Debugger quit" "q" #'+debugger/quit))
+
+;; ** toggle keycast-mode
+(map! :leader
+      (:prefix "t"
+       :desc "keycast" "k" #'keycast-mode))
+
 ;; ** winner undo, redo (undo window configuration)
 (map! "C-c <left>" 'winner-undo
       "C-c <right>" 'winner-redo)
@@ -124,6 +135,26 @@
 
 ;; ** undo-tree everywhere
 (setq global-undo-tree-mode t)
+
+;; ** keycast with doom modeline
+(after! keycast
+  (define-minor-mode keycast-mode
+    "Show current command and its key binding in the mode line."
+    :global t
+    (if keycast-mode
+        (progn
+                (add-hook 'pre-command-hook 'keycast--update t)
+                (add-to-list 'global-mode-string '("" mode-line-keycast)))
+      (progn
+         (remove-hook 'pre-command-hook 'keycast-mode-line-update)
+         (setq global-mode-string (delete '("" mode-line-keycast " ") global-mode-string)))))
+  (setq keycast-substitute-alist '((evil-next-line nil nil)
+                                   (evil-previous-line nil nil)
+                                   (evil-forward-char nil nil)
+                                   (evil-backward-char nil nil)
+                                   (ivy-done nil nil)
+                                   (self-insert-command nil nil))))
+(add-to-list 'global-mode-string '("" mode-line-keycast))
 
 ;; ** EAF
 ;; Still too slow for my taste
