@@ -156,6 +156,9 @@
                                    (self-insert-command nil nil))))
 (add-to-list 'global-mode-string '("" mode-line-keycast))
 
+;; ** Set projects path
+(setq projectile-project-search-path '("~/Projects/Code"))
+
 ;; ** EAF
 ;; Still too slow for my taste
 ;; (add-load-path! "~/.doomemacs.d/site-lisp/emacs-application-framework/")
