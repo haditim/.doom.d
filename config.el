@@ -36,14 +36,6 @@
       (:prefix-map ("s" . "search")
        :desc "rgrep in project" "r" #'rgrep))
 
-;; ** Ctrl+vim navigation keys in the evil edit mode
-(map! :i "C-l" #'forward-char
-      :i "C-h" #'backward-char
-      :i "C-k" #'previous-line
-      :i "C-j" #'next-line
-      :i "C-p" #'previous-line
-      :i "C-n" #'next-line)
-
 ;; ** jump to paranthesis with tab
 (map! :n [tab] 'evil-jump-item)
 
