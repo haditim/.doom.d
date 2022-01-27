@@ -53,7 +53,6 @@
 (package! python-pylint)
 (package! live-py-mode)
 (package! py-yapf)
-(package! arduino-mode)
 (package! dockerfile-mode)
 (package! ob-http)              ;; org-babel http for REST requests
 (package! nginx-mode)
