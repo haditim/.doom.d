@@ -110,6 +110,7 @@
 
 (add-hook 'dired-mode-hook
           (lambda ()
+            (dired-hide-details-mode)  ; enable with "("
             (define-key dired-mode-map (kbd "M-h")
               (lambda ()
                 "Toggle between hide and show."
