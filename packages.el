@@ -61,3 +61,6 @@
 (package! dired-du)
 (package! eldoc-box)
 (package! keycast)
+(package! subed
+  :recipe (:host github :repo "sachac/subed"
+           :files ("subed/*.el")))

@@ -65,8 +65,11 @@
       "C-c <right>" 'winner-redo)
 
 ;; ** drag text up-down
-(map! :n "M-p" 'drag-stuff-up
-      :n "M-n" 'drag-stuff-down)
+;; only when subed-mode is not enabled
+(map!
+ (:when ((not (equal major-mode 'subed-mode)))
+  :n "M-p" 'drag-stuff-up
+  :n "M-n" 'drag-stuff-down))
 
 ;; ** stop compilation
 (map! :leader
