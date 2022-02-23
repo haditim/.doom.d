@@ -67,7 +67,7 @@
 ;; ** drag text up-down
 ;; only when subed-mode is not enabled
 (map!
- (:when ((not (equal major-mode 'subed-mode)))
+ (:when (not (equal major-mode 'subed-mode))
   :n "M-p" 'drag-stuff-up
   :n "M-n" 'drag-stuff-down))
 
