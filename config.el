@@ -65,16 +65,21 @@
       "C-c <right>" 'winner-redo)
 
 ;; ** drag text up-down
-;; only when subed-mode is not enabled
 (map!
- (:when (not (equal major-mode 'subed-mode))
-  :n "M-p" 'drag-stuff-up
-  :n "M-n" 'drag-stuff-down))
+ :n "M-p" 'drag-stuff-up
+ :n "M-n" 'drag-stuff-down)
 
 ;; ** stop compilation
 (map! :leader
       (:prefix "c"
        :desc "Kill compilation" "K" #'kill-compilation))
+
+;; ** subed-mode restore keybinds
+(map! :map (subed-mode subed-srt-mode-map)
+  :n "M-p" #'subed-backward-subtitle-text
+  :n "M-n" #'subed-forward-subtitle-text
+  :leader                           ; Use leader key from now on
+  :desc "MPV play/pause" "<RET>" #'subed-mpv-toggle-pause)
 
 ;; * Misc
 (setq org-directory "~/Documents/ORG/")
