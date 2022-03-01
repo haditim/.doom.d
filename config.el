@@ -84,6 +84,9 @@
 ;; * Misc
 (setq org-directory "~/Documents/ORG/")
 
+;; ** add startpage to search engines
+(add-to-list '+lookup-provider-url-alist '("Startpage" "https://www.startpage.com/do/dsearch?query=%s"))
+
 ;; ** enable eldoc-box by default when eglot loads
 (add-hook 'eglot--managed-mode-hook #'eldoc-box-hover-mode t)
 
