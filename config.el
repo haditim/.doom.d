@@ -81,8 +81,11 @@
   :leader                           ; Use leader key from now on
   :desc "MPV play/pause" "<RET>" #'subed-mpv-toggle-pause)
 
-;; * Misc
+;; * Org settings
 (setq org-directory "~/Documents/ORG/")
+(add-hook! 'org-mode-hook 'org-download-enable)
+
+;; * Misc
 
 ;; ** add startpage to search engines
 (add-to-list '+lookup-provider-url-alist '("Startpage" "https://www.startpage.com/do/dsearch?query=%s"))

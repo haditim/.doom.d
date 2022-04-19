@@ -64,3 +64,4 @@
   :recipe (:host github :repo "sachac/subed"
            :files ("subed/*.el")))
 (package! lorem-ipsum)
+(package! org-download)
