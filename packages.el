@@ -65,3 +65,4 @@
            :files ("subed/*.el")))
 (package! lorem-ipsum)
 (package! org-download)
+(package! vala-mode)
