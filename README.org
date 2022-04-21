@@ -40,10 +40,13 @@ npm install --global vscode-html-languageserver-bin
 ** Kotlin
 For getting Kotlin to work, you need to install [[https://github.com/fwcd/kotlin-language-server][kotlin-language-server]].
 ** Flutter
-install dart and Flutter SDK. To open emulator, run
+Install dart and Flutter SDK. To open emulator, run
 #+BEGIN_SRC shell
 emulator @[emulator_name]
 #+END_SRC
+** Vala
+To user vala with LSP, install [[https://github.com/vala-lang/vala-language-server#emacs][vala-language-server]].
+
 * Useful reads
 If you never used vim or Emacs, read these up
 - [[https://github.com/hlissner/doom-emacs/blob/develop/docs/index.org][Doom Emacs documentation]]
