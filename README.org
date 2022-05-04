@@ -1,18 +1,20 @@
 * .doom.d
 My personal doom settings with focus on Python
 * Usage
-Install [[https://github.com/hlissner/doom-emacs][doom emacs,]] using
-#+BEGIN_SRC shell
-git clone https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
-#+END_SRC
-then run
+** Clone this repo
 #+BEGIN_SRC shell
 mv .doom.d .doom.d.bak
 git clone https://github.com/haditim/.doom.d
-.emacs.d/bin/doom refresh
 #+END_SRC
 
+** Install [[https://github.com/hlissner/doom-emacs][doom emacs,]] using
+#+BEGIN_SRC shell
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
+~/.emacs.d/bin/doom install
+#+END_SRC
+** done!
+
+* Programming languages
 ** Python
 - Install [[https://github.com/python-lsp/python-lsp-server][pylsp]] ~pip install 'python-lsp-server[all]'~
 - Install [[https://github.com/Richardk2n/pylsp-mypy][pylsp-mypy]] ~pip install pylsp-mypy~ for type checking
@@ -26,31 +28,39 @@ rustup toolchain add nightly
 rustup component add rust-src
 cargo +nightly install racer
 #+END_SRC
+
 ** Angular/Typescript
 For having ng2 LSP capabilities run
 #+BEGIN_SRC shell
 npm install -g @angular/language-service@next typescript  @angular/language-server
 #+END_SRC
+
 ** Javascript
 Install prettier for prettier-js to work
+
 ** VScode-like html auto completion
 #+BEGIN_SRC shell
 npm install --global vscode-html-languageserver-bin
 #+END_SRC
+
 ** Kotlin
 For getting Kotlin to work, you need to install [[https://github.com/fwcd/kotlin-language-server][kotlin-language-server]].
+
 ** Flutter
 Install dart and Flutter SDK. To open emulator, run
 #+BEGIN_SRC shell
 emulator @[emulator_name]
 #+END_SRC
+
 ** Vala
 To user vala with LSP, install [[https://github.com/vala-lang/vala-language-server#emacs][vala-language-server]].
+
+* Misc
+** Set spell checker language
+For changing the dictionary for spell checker, do =M-x ispell-change-dictionary= and switch to the language you want. Don't forget to have =hunspell= dictionaries installed before doing this.
 
 * Useful reads
 If you never used vim or Emacs, read these up
 - [[https://github.com/hlissner/doom-emacs/blob/develop/docs/index.org][Doom Emacs documentation]]
-- [[https://noelwelsh.com/posts/2019-01-10-doom-emacs.html][Doom Emacs Workflows]] by Noel Welsh
-- [[https://giuliolodi.dev/blog/2019-05-06-flutter-on-spacemacs/][Flutter in Spacemacs]] by Giulio Lodi
 - [[https://github.com/hlissner/doom-emacs/blob/develop/modules/editor/evil/config.el#L413-L460][vim-unimpaired provided by doom]]
 - [[https://github.com/hlissner/doom-emacs/blob/develop/modules/editor/evil/README.org#ported-vim-plugins][Ported vim plugins]] in doom docs
