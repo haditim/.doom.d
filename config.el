@@ -30,6 +30,15 @@
 (setq doom-font (font-spec :family "Dejavu Sans Mono" :size 15)
       doom-big-font (font-spec :family "Dejavu Sans Mono"  :size 21))
 
+;; * Languages
+;; ** C
+;; *** Linux kernel indentation
+(setq c-default-style "linux"
+      c-basic-offset 4)
+
+;; *** Automatic indentation
+(add-hook 'c-mode-common-hook #'(lambda () (c-toggle-auto-state 1)))
+
 ;; * Keybinds
 ;; ** rgrep in project
 (map! :leader
