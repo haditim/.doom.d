@@ -66,3 +66,4 @@
 (package! lorem-ipsum)
 (package! org-download)
 (package! vala-mode)
+(package! org-modern)

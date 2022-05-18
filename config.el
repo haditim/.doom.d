@@ -175,6 +175,9 @@
 ;; ** Set projects path
 (setq projectile-project-search-path '("~/Projects/Code"))
 
+;; ** org-modern-mode global
+(global-org-modern-mode)
+
 ;; ** EAF
 ;; Still too slow for my taste
 ;; (add-load-path! "~/.doomemacs.d/site-lisp/emacs-application-framework/")
