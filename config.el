@@ -52,7 +52,6 @@
 (map! :leader
       (:desc "Expand region"  "v" #'er/expand-region))
 
-
 ;; ** rename buffer
 (map! :leader
       (:prefix "b"
@@ -89,6 +88,11 @@
   :n "M-n" #'subed-forward-subtitle-text
   :leader                           ; Use leader key from now on
   :desc "MPV play/pause" "<RET>" #'subed-mpv-toggle-pause)
+
+;; ** find other file (switch between .c and .h)
+(map! :leader
+      (:prefix "f"
+       :desc "Find other file (.c, .h)" "o" #'ff-find-other-file))
 
 ;; * Org settings
 (setq org-directory "~/Documents/ORG/")
