@@ -12,6 +12,10 @@ git clone https://github.com/haditim/.doom.d
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 #+END_SRC
+
+** Optional: install DejaVuSansCode
+My setting will fall back to DejaVu Sans Mono if this font does not exist. The only difference is that [[https://github.com/SSNikolaevich/DejaVuSansCode][DejaVuSansCode]] supports ligatures (set in =:ui ligatures= in doom's =init.el=).
+
 ** done!
 
 * Programming languages
