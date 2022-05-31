@@ -32,7 +32,7 @@
                     '("DejaVu Sans Code"
                       "Dejavu Sans Mono")))
 (setq doom-font (font-spec :family my-font :size 15)
-      doom-big-font (font-spec :size 21))
+      doom-big-font (font-spec :family my-font :size 21))
 
 ;; * Languages
 ;; ** C
