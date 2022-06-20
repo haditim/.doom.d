@@ -1,7 +1,7 @@
 ;; * Look and feel
 
-;; ** Start maximized
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+;; ** Start fullscreen
+(toggle-frame-fullscreen)
 
 ;; ** Don't ask to quit
 (setq confirm-kill-emacs nil)
@@ -9,18 +9,17 @@
 ;; ** Modeline adjustments
 (setq doom-modeline-major-mode-icon t)
 
-;; ** lsp always show breadcrumb
-(setq lsp-headerline-breadcrumb-enable t)
-
-;; ** doom-gruvbox for the theme
+;; ** doom-molokai for the theme
 (setq
  doom-theme 'doom-molokai
  display-line-numbers-type 'relative)
 
-;; ** error in treemacs icons
+;; ** Treemacs
+;; *** Fix icons problem
 (doom-themes-treemacs-config)
 (after! treemacs
   (treemacs-load-theme "doom-colors")
+  ;; *** Always follow open files
   (setq treemacs-follow-mode t))
 
 ;; ** Outshine mini mode for all major modes
@@ -34,7 +33,16 @@
 (setq doom-font (font-spec :family my-font :size 15)
       doom-big-font (font-spec :family my-font :size 21))
 
-;; * Languages
+;; * Programming languages
+
+;; ** Global settings
+
+;; *** lsp always show breadcrumb
+(setq lsp-headerline-breadcrumb-enable t)
+
+;; *** enable eldoc-box by default when eglot loads
+(add-hook 'eglot--managed-mode-hook #'eldoc-box-hover-mode t)
+
 ;; ** C
 ;; *** Linux kernel indentation
 (setq c-default-style "linux"
@@ -44,10 +52,10 @@
 (add-hook 'c-mode-common-hook #'(lambda () (c-toggle-auto-state 1)))
 
 ;; * Keybinds
-;; ** rgrep in project
+;; ** rgrep
 (map! :leader
       (:prefix-map ("s" . "search")
-       :desc "rgrep in project" "r" #'rgrep))
+       :desc "rgrep" "r" #'rgrep))
 
 ;; ** jump to paranthesis with tab
 (map! :n [tab] 'evil-jump-item)
@@ -66,15 +74,6 @@
       (:prefix "o"
        :desc "Debugger start last" "l" #'+debugger/start-last
        :desc "Debugger quit" "q" #'+debugger/quit))
-
-;; ** toggle keycast-mode
-(map! :leader
-      (:prefix "t"
-       :desc "keycast" "k" #'keycast-mode))
-
-;; ** winner undo, redo (undo window configuration)
-(map! "C-c <left>" 'winner-undo
-      "C-c <right>" 'winner-redo)
 
 ;; ** drag text up-down
 (map!
@@ -98,39 +97,20 @@
       (:prefix "f"
        :desc "Find other file (.c, .h)" "o" #'ff-find-other-file))
 
-;; * Org settings
+;; * Org
 (setq org-directory "~/Documents/ORG/")
 (add-hook! 'org-mode-hook 'org-download-enable)
 
-;; * Misc
+;; ** org-modern-mode global
+(global-org-modern-mode)
 
-;; ** add startpage to search engines
-(add-to-list '+lookup-provider-url-alist '("Startpage" "https://www.startpage.com/do/dsearch?query=%s"))
-
-;; ** enable eldoc-box by default when eglot loads
-(add-hook 'eglot--managed-mode-hook #'eldoc-box-hover-mode t)
-
-;; ** rgrep ignore some folders
-(eval-after-load 'grep
-  '(progn
-     (add-to-list 'grep-find-ignored-directories "tmp")
-     (add-to-list 'grep-find-ignored-directories "node_modules")
-     (add-to-list 'grep-find-ignored-directories ".bundle")
-     (add-to-list 'grep-find-ignored-directories "auto")
-     (add-to-list 'grep-find-ignored-directories "env")
-     (add-to-list 'grep-find-ignored-directories ".env")
-     (add-to-list 'grep-find-ignored-directories "venv")
-     (add-to-list 'grep-find-ignored-directories ".pytest_cache")
-     (add-to-list 'grep-find-ignored-directories "elpa")))
-(setq wgrep-enable-key (kbd "C-c C-c"))
-(add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines 1)))
-
-;; ** dired hide files toggle on M-h
+;; * Dired
+;; ** Hide files toggle on M-h
 (setq my-dired-ls-switches "-alh --ignore=.* --ignore=\\#* --ignore=*~")
 
 (setq my-dired-switch 1)
 
-;; ** dired don't ask questions about size
+;; ** Don't ask questions about size
 (setq large-file-warning-threshold nil)
 
 (add-hook 'dired-mode-hook
@@ -150,6 +130,32 @@
                 (if (= my-dired-switch 1)
                     (dired-sort-other my-dired-ls-switches)
                   (dired-sort-other "-alh"))))))
+
+;; * Projects
+;; ** Set projects path
+(setq projectile-project-search-path '("~/Projects/Code"))
+
+;; * Misc (not very important and can be removed)
+
+;; ** add startpage and quant to search engines
+(add-to-list '+lookup-provider-url-alist '("Startpage" "https://www.startpage.com/do/dsearch?query=%s"))
+(add-to-list '+lookup-provider-url-alist '("Qwant" "https://qwant.com/?q=%s"))
+
+
+;; ** rgrep ignore some folders
+(eval-after-load 'grep
+  '(progn
+     (add-to-list 'grep-find-ignored-directories "tmp")
+     (add-to-list 'grep-find-ignored-directories "node_modules")
+     (add-to-list 'grep-find-ignored-directories ".bundle")
+     (add-to-list 'grep-find-ignored-directories "auto")
+     (add-to-list 'grep-find-ignored-directories "env")
+     (add-to-list 'grep-find-ignored-directories ".env")
+     (add-to-list 'grep-find-ignored-directories "venv")
+     (add-to-list 'grep-find-ignored-directories ".pytest_cache")
+     (add-to-list 'grep-find-ignored-directories "elpa")))
+(setq wgrep-enable-key (kbd "C-c C-c"))
+(add-hook 'grep-mode-hook (lambda () (toggle-truncate-lines 1)))
 
 
 ;; ** Ansi colors in buffer
@@ -180,11 +186,11 @@
                                    (self-insert-command nil nil))))
 (add-to-list 'global-mode-string '("" mode-line-keycast))
 
-;; ** Set projects path
-(setq projectile-project-search-path '("~/Projects/Code"))
-
-;; ** org-modern-mode global
-(global-org-modern-mode)
+;; * Not used any more
+;; ** toggle keycast-mode
+;; (map! :leader
+;;       (:prefix "t"
+;;        :desc "keycast" "k" #'keycast-mode))
 
 ;; ** EAF
 ;; Still too slow for my taste
