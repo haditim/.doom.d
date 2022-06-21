@@ -17,6 +17,7 @@
 (doom! :input
        ;;chinese
        ;;japanese
+       bidi
 
        :completion
        (company          ; the ultimate code completion backend

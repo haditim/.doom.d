@@ -135,6 +135,15 @@
 ;; ** Set projects path
 (setq projectile-project-search-path '("~/Projects/Code"))
 
+;; * Compilation
+;; ** Always scroll
+(after! compile
+        (setq compilation-scroll-output t))
+
+;; * Human languages
+;; ** Enable Persian/Arabic and other RTL languages in org-mode
+(add-hook 'org-mode-hook #'+bidi-mode)
+
 ;; * Misc (not very important and can be removed)
 
 ;; ** add startpage and quant to search engines
