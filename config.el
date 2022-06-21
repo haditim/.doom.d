@@ -144,6 +144,10 @@
 ;; ** Enable Persian/Arabic and other RTL languages in org-mode
 (add-hook 'org-mode-hook #'+bidi-mode)
 
+;; ** A tolerable font for Persian/Arabic
+(add-hook '+bidi-mode-hook
+          (lambda () (set-fontset-font t 'arabic (font-spec :family "Droid Naskh Shift Alt"))))
+
 ;; * Misc (not very important and can be removed)
 
 ;; ** add startpage and quant to search engines
