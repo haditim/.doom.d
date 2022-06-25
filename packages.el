@@ -56,7 +56,6 @@
 (package! dockerfile-mode)
 (package! ob-http)              ;; org-babel http for REST requests
 (package! nginx-mode)
-(package! outshine)
 (package! android-mode)
 (package! dired-du)
 (package! eldoc-box)
@@ -67,3 +66,5 @@
 (package! org-download)
 (package! vala-mode)
 (package! org-modern)
+(package! denote
+  :recipe (:host nil :repo "https://git.sr.ht/~protesilaos/denote"))
