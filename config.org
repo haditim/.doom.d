@@ -19,25 +19,25 @@ but I keep them checked out for initial start.
 
 
 * Keybinds
-** jump to paranthesis with tab
+** Jump to paranthesis with tab
 #+begin_src emacs-lisp
 (map! :n [tab] 'evil-jump-item)
 #+end_src
 
-** expand region
+** Expand region
 #+begin_src emacs-lisp
 (map! :leader
       (:desc "Expand region"  "v" #'er/expand-region))
 #+end_src
 
-** rename buffer
+** Rename buffer
 #+begin_src emacs-lisp
 (map! :leader
       (:prefix "b"
        :desc "Rename the buffer" "R" #'rename-buffer))
 #+end_src
 
-** debugger
+** Debugger
 #+begin_src emacs-lisp
 (map! :leader
       (:prefix "o"
@@ -45,14 +45,14 @@ but I keep them checked out for initial start.
        :desc "Debugger quit" "q" #'+debugger/quit))
 #+end_src
 
-** drag text up-down
+** Drag text up/down
 #+begin_src emacs-lisp
 (map!
  :n "M-p" 'drag-stuff-up
  :n "M-n" 'drag-stuff-down)
 #+end_src
 
-** stop compilation
+** Stop compilation
 #+begin_src emacs-lisp
 (map! :leader
       (:prefix "c"
@@ -60,6 +60,7 @@ but I keep them checked out for initial start.
 #+end_src
 
 ** subed-mode restore keybinds
+This assures ~evil~ does not conflict with [[https://github.com/sachac/subed][subed]] keybinds.
 #+begin_src emacs-lisp
 (map! :map (subed-mode subed-srt-mode-map)
   :n "M-p" #'subed-backward-subtitle-text
@@ -68,7 +69,7 @@ but I keep them checked out for initial start.
   :desc "MPV play/pause" "<RET>" #'subed-mpv-toggle-pause)
 #+end_src
 
-** find other file (switch between .c and .h)
+** Find other file (switch between .c and .h)
 #+begin_src emacs-lisp
 (map! :leader
       (:prefix "f"
@@ -144,7 +145,7 @@ Look at [[*Denote][denote section]] for more info.
 (setq lsp-headerline-breadcrumb-enable t)
 #+end_src
 
-*** enable eldoc-box by default when eglot loads
+*** Enable eldoc-box by default when eglot loads
 #+begin_src emacs-lisp
 (add-hook 'eglot--managed-mode-hook #'eldoc-box-hover-mode t)
 
@@ -224,7 +225,8 @@ Look at [[*Denote][denote section]] for more info.
 #+end_src
 
 ** denote
-denote is used to keep my notes in one place with relevant folders. Keybinds are defined in [[*Denote keybinds][denote keybinds]].
+The package [[https://github.com/protesilaos/denote][denote]] is a nice note-taking package. I use it here to keep my
+notes in one place with relevant folders. Keybinds are defined in [[*Denote keybinds][denote keybinds]].
 *** Imports
 #+begin_src emacs-lisp
 (require 'f)
@@ -351,7 +353,7 @@ Call these instead of default ~denote~ to order notes in subdirectories.
 #+end_src
 
 * Misc (not very important and can be removed)
-** add startpage and quant to search engines
+** Add Startpage and Qwant to search engines
 #+begin_src emacs-lisp
 (add-to-list '+lookup-provider-url-alist '("Startpage" "https://www.startpage.com/do/dsearch?query=%s"))
 (add-to-list '+lookup-provider-url-alist '("Qwant" "https://qwant.com/?q=%s"))
@@ -372,7 +374,7 @@ Call these instead of default ~denote~ to order notes in subdirectories.
 
 * Not used any more
 ** Keycast
-*** keycast with doom modeline
+*** Keycast with doom modeline
 #+begin_src emacs-lisp :tangle no
 (after! keycast
   (define-minor-mode keycast-mode
@@ -394,7 +396,7 @@ Call these instead of default ~denote~ to order notes in subdirectories.
 (add-to-list 'global-mode-string '("" mode-line-keycast))
 #+end_src
 
-*** toggle keycast-mode
+*** Toggle keycast-mode
 #+begin_src emacs-lisp :tangle no
  (map! :leader
        (:prefix "t"
