@@ -75,17 +75,17 @@ but I keep them checked out for initial start.
        :desc "Find other file (.c, .h)" "o" #'ff-find-other-file))
 #+end_src
 
-** Denote keybinds
-Look at [[*Denote][Denote section]] for more info.
+** denote keybinds
+Look at [[*Denote][denote section]] for more info.
 #+begin_src emacs-lisp
 (map! :leader
       (:prefix "n"
-        (:prefix ("D" . "Denote/mynote")
+        (:prefix ("D" . "denote/mynote")
          ("b" #'+mynote/browse-notes)
          ("N" #'+mynote/new-subdir)
          ("n" #'+mynote/new-in-subdir)
          ("d" #'+mynote/new-in-subdir-with-date
-          (:prefix ("D" . "Denote")
+          (:prefix ("D" . "denote")
             ("n" #'denote)
             ("d" #'denote-date))))))
 #+end_src
@@ -223,8 +223,8 @@ Look at [[*Denote][Denote section]] for more info.
 (global-org-modern-mode)
 #+end_src
 
-** Denote
-Denote is used to keep my notes in one place with relevant folders. Keybinds are defined in [[*Denote keybinds][Denote keybinds]].
+** denote
+denote is used to keep my notes in one place with relevant folders. Keybinds are defined in [[*Denote keybinds][denote keybinds]].
 *** Imports
 #+begin_src emacs-lisp
 (require 'f)
@@ -232,7 +232,7 @@ Denote is used to keep my notes in one place with relevant folders. Keybinds are
 (require 'denote-dired)
 #+end_src
 
-*** Denote custom functions
+*** denote custom functions
 Call these instead of default ~denote~ to order notes in subdirectories.
 #+begin_src emacs-lisp
 (defun mynote--get-note-subdirs ()

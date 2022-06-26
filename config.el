@@ -32,12 +32,12 @@
 
 (map! :leader
       (:prefix "n"
-        (:prefix ("D" . "Denote/mynote")
+        (:prefix ("D" . "denote/mynote")
          ("b" #'+mynote/browse-notes)
          ("N" #'+mynote/new-subdir)
          ("n" #'+mynote/new-in-subdir)
          ("d" #'+mynote/new-in-subdir-with-date
-          (:prefix ("D" . "Denote")
+          (:prefix ("D" . "denote")
             ("n" #'denote)
             ("d" #'denote-date))))))
 
