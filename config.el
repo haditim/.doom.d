@@ -120,7 +120,7 @@
           (mynote--set-denote-keywords)))))
 
 (defun +mynote/new-in-subdir ()
-  "Call this function instead of `denote'"
+  "Call this function instead of `denote' for notes in a subfolder"
   (interactive)
   (let* ((keyword (denote--keywords-prompt))
          (denote-directory (file-name-concat denote-directory keyword)))
@@ -129,7 +129,7 @@
      keyword)))
 
 (defun +mynote/new-in-subdir-with-date ()
-  "Call this function instead of `denote'"
+  "Call this function instead of `denote-date' for notes in a subfolder with date"
   (interactive)
   (let* ((keyword (denote--keywords-prompt))
          (denote-directory (file-name-concat denote-directory keyword)))
@@ -142,7 +142,7 @@
   "Browse files from `denote-directory'"
   (interactive)
   (unless (bound-and-true-p denote-directory)
-    (print "denote-directoy not defined"))
+    (message "denote-directoy not defined"))
   (doom-project-browse (concat denote-directory "/")))
 
 (setq denote-directory "~/Documents/notes")

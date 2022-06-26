@@ -76,7 +76,7 @@ but I keep them checked out for initial start.
 #+end_src
 
 ** Denote keybinds
-Look at [[*Denote][Denote section]]
+Look at [[*Denote][Denote section]] for more info.
 #+begin_src emacs-lisp
 (map! :leader
       (:prefix "n"
@@ -265,7 +265,7 @@ Call these instead of default ~denote~ to order notes in subdirectories.
           (mynote--set-denote-keywords)))))
 
 (defun +mynote/new-in-subdir ()
-  "Call this function instead of `denote'"
+  "Call this function instead of `denote' for notes in a subfolder"
   (interactive)
   (let* ((keyword (denote--keywords-prompt))
          (denote-directory (file-name-concat denote-directory keyword)))
@@ -274,7 +274,7 @@ Call these instead of default ~denote~ to order notes in subdirectories.
      keyword)))
 
 (defun +mynote/new-in-subdir-with-date ()
-  "Call this function instead of `denote'"
+  "Call this function instead of `denote-date' for notes in a subfolder with date"
   (interactive)
   (let* ((keyword (denote--keywords-prompt))
          (denote-directory (file-name-concat denote-directory keyword)))
@@ -287,7 +287,7 @@ Call these instead of default ~denote~ to order notes in subdirectories.
   "Browse files from `denote-directory'"
   (interactive)
   (unless (bound-and-true-p denote-directory)
-    (print "denote-directoy not defined"))
+    (message "denote-directoy not defined"))
   (doom-project-browse (concat denote-directory "/")))
 #+end_src
 *** Other settings
