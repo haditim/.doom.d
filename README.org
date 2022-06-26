@@ -1,5 +1,5 @@
 * .doom.d
-My personal doom settings with focus on Python
+My personal [[https://github.com/doomemacs/doomemacs][Doom Emacs]] settings.
 * Usage
 ** Clone this repo
 #+BEGIN_SRC shell
@@ -18,14 +18,18 @@ My setting will fall back to DejaVu Sans Mono if this font does not exist. The o
 
 ** done!
 
-* Programming languages
-** Python
+* Documentation
+The [[file:config.org][config file]] is literate and should be self documenting.
+
+* Optional: extra steps
+** Programming languages
+*** Python
 - Install [[https://github.com/python-lsp/python-lsp-server][pylsp]] ~pip install 'python-lsp-server[all]'~
 - Install [[https://github.com/Richardk2n/pylsp-mypy][pylsp-mypy]] ~pip install pylsp-mypy~ for type checking
 - Install [[https://github.com/python-rope/pylsp-rope][pylsp-rope]] ~pip install pylsp-rope~ for more refactoring possibilities and code actions. This slowed my emacs significantly, if you see the same, just uninstall it ~pip uninstall pylsp-rope~.
 - Install [[https://github.com/python-lsp/python-lsp-black][pylsp-black]] ~pip install python-lsp-black~ for formatting using yapf or blacken
 
-** Rust
+*** Rust
 If you want to code in Rust, after installing ~rustup~ run
 #+BEGIN_SRC shell
 rustup toolchain add nightly
@@ -33,34 +37,34 @@ rustup component add rust-src
 cargo +nightly install racer
 #+END_SRC
 
-** Angular/Typescript
+*** Angular/Typescript
 For having ng2 LSP capabilities run
 #+BEGIN_SRC shell
 npm install -g @angular/language-service@next typescript  @angular/language-server
 #+END_SRC
 
-** Javascript
+*** Javascript
 Install prettier for prettier-js to work
 
-** VScode-like html auto completion
+*** VScode-like html auto completion
 #+BEGIN_SRC shell
 npm install --global vscode-html-languageserver-bin
 #+END_SRC
 
-** Kotlin
+*** Kotlin
 For getting Kotlin to work, you need to install [[https://github.com/fwcd/kotlin-language-server][kotlin-language-server]].
 
-** Flutter
+*** Flutter
 Install dart and Flutter SDK. To open emulator, run
 #+BEGIN_SRC shell
 emulator @[emulator_name]
 #+END_SRC
 
-** Vala
+*** Vala
 To user vala with LSP, install [[https://github.com/vala-lang/vala-language-server#emacs][vala-language-server]].
 
-* Misc
-** Set spell checker language
+** Misc
+*** Set spell checker language
 For changing the dictionary for spell checker, do =M-x ispell-change-dictionary= and switch to the language you want. Don't forget to have =hunspell= dictionaries installed before doing this.
 
 * Useful reads
