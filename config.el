@@ -30,6 +30,17 @@
       (:prefix "f"
        :desc "Find other file (.c, .h)" "o" #'ff-find-other-file))
 
+(map! :leader
+      (:prefix "n"
+        (:prefix ("D" . "Denote/mynote")
+         ("b" #'+mynote/browse-notes)
+         ("N" #'+mynote/new-subdir)
+         ("n" #'+mynote/new-in-subdir)
+         ("d" #'+mynote/new-in-subdir-with-date
+          (:prefix ("D" . "Denote")
+            ("n" #'denote)
+            ("d" #'denote-date))))))
+
 (toggle-frame-fullscreen)
 
 (setq confirm-kill-emacs nil)
@@ -74,6 +85,69 @@
 (add-hook! 'org-mode-hook 'org-download-enable)
 
 (global-org-modern-mode)
+
+(require 'f)
+(require 'denote)
+(require 'denote-dired)
+
+(defun mynote--get-note-subdirs ()
+  "Lists only names of subdirectories"
+  (let ((subdir-names)
+        (subdirs (f-directories denote-directory)))
+    (dolist (item subdirs)
+      (add-to-list 'subdir-names (file-name-nondirectory item)))
+    subdir-names))
+
+(defun mynote--set-denote-keywords ()
+  "Sets `denote-keywords' based on subfolder structure"
+  (setq denote-known-keywords (mynote--get-note-subdirs)))
+
+(defun +mynote/new-subdir ()
+  "Creates sub directory in the `denote-directory' for better organization"
+  (interactive)
+  (if-let (keyword (read-string "Subdir name: " nil))
+      (let ((subdir (file-name-concat denote-directory keyword)))
+        (let ((loc-file (file-name-concat subdir ".dir-locals.el")))
+          (if (f-dir? subdir)
+              (message (concat "directory " subdir " already exists!"))
+            (progn
+              (make-directory subdir)
+              (if (f-file? loc-file)
+                  (message (concat "file " loc-file " already exists!"))
+                (progn
+                  (make-empty-file loc-file)
+                  (write-region "((nil . ((denote-directory . local))))" nil loc-file)))))
+          (mynote--set-denote-keywords)))))
+
+(defun +mynote/new-in-subdir ()
+  "Call this function instead of `denote'"
+  (interactive)
+  (let* ((keyword (denote--keywords-prompt))
+         (denote-directory (file-name-concat denote-directory keyword)))
+    (denote
+     (denote--title-prompt)
+     keyword)))
+
+(defun +mynote/new-in-subdir-with-date ()
+  "Call this function instead of `denote'"
+  (interactive)
+  (let* ((keyword (denote--keywords-prompt))
+         (denote-directory (file-name-concat denote-directory keyword)))
+    (denote-date
+     (denote--date-prompt)
+     (denote--title-prompt)
+     keyword)))
+
+(defun +mynote/browse-notes ()
+  "Browse files from `denote-directory'"
+  (interactive)
+  (unless (bound-and-true-p denote-directory)
+    (print "denote-directoy not defined"))
+  (doom-project-browse (concat denote-directory "/")))
+
+(setq denote-directory "~/Documents/notes")
+(mynote--set-denote-keywords)
+(add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
 
 (setq my-dired-ls-switches "-alh --ignore=.* --ignore=\\#* --ignore=*~")
 
