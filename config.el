@@ -145,6 +145,10 @@
     (message "denote-directoy not defined"))
   (doom-project-browse (concat denote-directory "/")))
 
+;; make default folder to avoid errors
+(when (not (f-dir? denote-directory))
+  (make-directory denote-directory))
+
 (setq denote-directory "~/Documents/notes")
 (mynote--set-denote-keywords)
 (add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
