@@ -7,11 +7,15 @@ mv .doom.d .doom.d.bak
 git clone https://github.com/haditim/.doom.d
 #+END_SRC
 
-** Install [[https://github.com/hlissner/doom-emacs][doom emacs,]] using
+** Install Doom Emacs
 #+BEGIN_SRC shell
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 #+END_SRC
+
+** Reload Doom Emacs
+Using ~M-x doom/reload~ inside Emacs or =~/.emacs.d/bin/doom sync= in terminal. This assures that the literal ~config.org~ gets processed.
+
 
 ** Optional: install DejaVuSansCode
 My setting will fall back to DejaVu Sans Mono if this font does not exist. The only difference is that [[https://github.com/SSNikolaevich/DejaVuSansCode][DejaVuSansCode]] supports ligatures (set in =:ui ligatures= in doom's =init.el=).
@@ -19,7 +23,7 @@ My setting will fall back to DejaVu Sans Mono if this font does not exist. The o
 ** done!
 
 * Documentation
-The [[file:config.org][config file]] is literate and should be self documenting.
+The [[file:config.org][config file]] is self documenting.
 
 * Optional: extra steps
 ** Programming languages

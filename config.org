@@ -14,9 +14,6 @@ To use:
 ;; To modify configs, take a look at `config.org`
 #+end_src
 
-Note: In principle, you don't need ~packages.el~ and ~config.el~ from this repo,
-but I keep them checked out for initial start.
-
 
 * Keybinds
 ** Jump to paranthesis with tab
