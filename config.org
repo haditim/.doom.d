@@ -342,7 +342,7 @@ Call these instead of default ~denote~ to order notes in subdirectories.
 (setq projectile-project-search-path '("~/Projects/Code"))
 #+end_src
 
-* Misc Packages
+* Misc packages
 #+begin_src emacs-lisp :tangle packages.el
 (package! dockerfile-mode)
 (package! nginx-mode)
@@ -353,7 +353,7 @@ Call these instead of default ~denote~ to order notes in subdirectories.
 (package! lorem-ipsum)
 #+end_src
 
-* Misc (not very important and can be removed)
+* Misc config (not very important and can be removed)
 ** Add Startpage and Qwant to search engines
 #+begin_src emacs-lisp
 (add-to-list '+lookup-provider-url-alist '("Startpage" "https://www.startpage.com/do/dsearch?query=%s"))
