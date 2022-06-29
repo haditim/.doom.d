@@ -145,7 +145,11 @@ Look at [[*Denote][denote section]] for more info.
 *** Enable eldoc-box by default when eglot loads
 #+begin_src emacs-lisp
 (add-hook 'eglot--managed-mode-hook #'eldoc-box-hover-mode t)
+#+end_src
 
+*** Global tree-sitter mode
+#+begin_src emacs-lisp
+(global-tree-sitter-mode)
 #+end_src
 
 ** Python
