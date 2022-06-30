@@ -4,9 +4,7 @@
        bidi
 
        :completion
-       (company
-        +auto
-        +childframe)
+       (company +auto +childframe)
        (vertico +icons)
 
        :ui
@@ -21,9 +19,7 @@
        ophints
        (popup +defaults)
        ligatures
-       (treemacs
-        +icons
-        +lsp)
+       (treemacs +icons +lsp)
        vc-gutter
        vi-tilde-fringe
        window-select
@@ -45,8 +41,7 @@
        (dired +icons)
        electric
        (ibuffer +icons)
-       (undo
-        +tree)
+       (undo +tree)
        vc
 
        :term
@@ -54,12 +49,8 @@
        vterm
 
        :checkers
-       (syntax
-        +childframe)
-       (spell
-        +flyspell
-        +hunspell
-        +eveywhere)
+       (syntax +childframe)
+       (spell +flyspell +hunspell +eveywhere)
        grammar
 
        :tools
@@ -68,9 +59,7 @@
        (docker +lsp)
        ein
        (eval +overlay)
-       (lookup
-        +dictionary
-        +offline)
+       (lookup +dictionary +offline)
        (lsp)
        magit
        make
@@ -95,9 +84,7 @@
        org
        raku
        php
-       (python
-        +lsp
-        +dap)
+       (python +lsp +dap)
        rest
        (rust +lsp)
        (scheme +guile)
