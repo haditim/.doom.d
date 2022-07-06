@@ -340,6 +340,11 @@ Call these instead of default ~denote~ to order notes in subdirectories.
                   (dired-sort-other "-alh"))))))
 #+end_src
 
+* Avy
+Thanks to Karthink for his [[https://github.com/karthink/.emacs.d/issues/2][answer]] and his [[https://karthinks.com/software/avy-can-do-anything/][write-up]] on avy.
+#+begin_src emacs-lisp
+(setq avy-all-windows t)
+#+end_src
 * Projects
 ** Set projects path
 #+begin_src emacs-lisp
