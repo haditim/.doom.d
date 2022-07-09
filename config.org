@@ -78,14 +78,11 @@ Look at [[*Denote][denote section]] for more info.
 #+begin_src emacs-lisp
 (map! :leader
       (:prefix "n"
-        (:prefix ("D" . "denote/mynote")
-         ("b" #'+mynote/browse-notes)
-         ("N" #'+mynote/new-subdir)
-         ("n" #'+mynote/new-in-subdir)
-         ("d" #'+mynote/new-in-subdir-with-date
-          (:prefix ("D" . "denote")
-            ("n" #'denote)
-            ("d" #'denote-date))))))
+        (:prefix ("D" . "denote")
+         ("N" #'denote-subdirectory-new :desc "new note in new subdirectory")
+         ("n" #'denote-subdirectory :desc "new note in existing subdirecory")
+         ("d" #'denote :desc "new note in main notes dir")
+         ("b" #'denote-browse :desc "browse notes in denote directory"))))
 #+end_src
 
 * Look and feel
@@ -228,80 +225,35 @@ Look at [[*Denote][denote section]] for more info.
 ** denote
 The package [[https://github.com/protesilaos/denote][denote]] is a nice note-taking package. I use it here to keep my
 notes in one place with relevant folders. Keybinds are defined in [[*Denote keybinds][denote keybinds]].
-*** Imports
+
+*** denote custom function
+A small func to create a subdir for you in your notes directory.
 #+begin_src emacs-lisp
 (require 'f)
 (require 'denote)
 (require 'denote-dired)
-#+end_src
 
-*** denote custom functions
-Call these instead of default ~denote~ to order notes in subdirectories.
-#+begin_src emacs-lisp
-(defun mynote--get-note-subdirs ()
-  "Lists only names of subdirectories"
-  (let ((subdir-names)
-        (subdirs (f-directories denote-directory)))
-    (dolist (item subdirs)
-      (add-to-list 'subdir-names (file-name-nondirectory item)))
-    subdir-names))
-
-(defun mynote--set-denote-keywords ()
-  "Sets `denote-keywords' based on subfolder structure"
-  (setq denote-known-keywords (mynote--get-note-subdirs)))
-
-(defun +mynote/new-subdir ()
+(defun denote-subdirectory-new ()
   "Creates sub directory in the `denote-directory' for better organization"
   (interactive)
-  (if-let (keyword (read-string "Subdir name: " nil))
-      (let ((subdir (file-name-concat denote-directory keyword)))
-        (let ((loc-file (file-name-concat subdir ".dir-locals.el")))
-          (if (f-dir? subdir)
-              (message (concat "directory " subdir " already exists!"))
-            (progn
-              (make-directory subdir)
-              (if (f-file? loc-file)
-                  (message (concat "file " loc-file " already exists!"))
-                (progn
-                  (make-empty-file loc-file)
-                  (write-region "((nil . ((denote-directory . local))))" nil loc-file)))))
-          (mynote--set-denote-keywords)))))
+  (if-let (sd (read-string "Subdir name: " nil))
+      (let ((subdir (file-name-concat denote-directory sd)))
+        (if (f-dir? subdir)
+           (message (concat "directory " subdir " already exists!"))
+           (make-directory subdir))
+        (denote-subdirectory subdir (denote--title-prompt) (denote--keywords-prompt)))))
 
-(defun +mynote/new-in-subdir ()
-  "Call this function instead of `denote' for notes in a subfolder"
-  (interactive)
-  (let* ((keyword (denote--keywords-prompt))
-         (denote-directory (file-name-concat denote-directory keyword)))
-    (denote
-     (denote--title-prompt)
-     keyword)))
-
-(defun +mynote/new-in-subdir-with-date ()
-  "Call this function instead of `denote-date' for notes in a subfolder with date"
-  (interactive)
-  (let* ((keyword (denote--keywords-prompt))
-         (denote-directory (file-name-concat denote-directory keyword)))
-    (denote-date
-     (denote--date-prompt)
-     (denote--title-prompt)
-     keyword)))
-
-(defun +mynote/browse-notes ()
+(defun denote-browse ()
   "Browse files from `denote-directory'"
   (interactive)
   (unless (bound-and-true-p denote-directory)
     (message "denote-directoy not defined"))
   (doom-project-browse (concat denote-directory "/")))
-
-;; make default folder to avoid errors
-(when (not (f-dir? denote-directory))
-  (make-directory denote-directory))
 #+end_src
 *** Other settings
 #+begin_src emacs-lisp
 (setq denote-directory "~/Documents/notes")
-(mynote--set-denote-keywords)
-(add-hook 'dired-mode-hook #'denote-dired-mode-in-directories)
+(setq denote-known-keywords nil)
 #+end_src
 
 * Dired
