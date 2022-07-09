@@ -16,7 +16,7 @@ To use:
 
 
 * Keybinds
-** Jump to paranthesis with tab
+** Jump to parenthesis with tab
 #+begin_src emacs-lisp
 (map! :n [tab] 'evil-jump-item)
 #+end_src
@@ -81,6 +81,7 @@ Look at [[*Denote][denote section]] for more info.
         (:prefix ("D" . "denote")
          ("N" #'denote-subdirectory-new :desc "new note in new subdirectory")
          ("n" #'denote-subdirectory :desc "new note in existing subdirecory")
+         ("D" #'denote-subdirectory-with-date :desc "new note in existing subdirecory with date")
          ("d" #'denote :desc "new note in main notes dir")
          ("b" #'denote-browse :desc "browse notes in denote directory"))))
 #+end_src
@@ -249,7 +250,21 @@ A small func to create a subdir for you in your notes directory.
   (unless (bound-and-true-p denote-directory)
     (message "denote-directoy not defined"))
   (doom-project-browse (concat denote-directory "/")))
+
+(defun denote-subdirectory-with-date (date directory title keywords)
+  "Like `denote-subdirectory' but ask for date of the note."
+  (interactive
+   (list
+    (denote--date-prompt)
+    (denote--subdirs-prompt)
+    (denote--title-prompt)
+    (denote--keywords-prompt)))
+  (when-let ((d (denote--valid-date date))
+             (denote-directory directory))
+    (denote--prepare-note title keywords nil d)
+    (denote--keywords-add-to-history keywords)))
 #+end_src
+
 *** Other settings
 #+begin_src emacs-lisp
 (setq denote-directory "~/Documents/notes")
