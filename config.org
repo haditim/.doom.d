@@ -260,14 +260,15 @@ A small func to create a subdir for you in your notes directory.
     (denote--title-prompt)
     (denote--keywords-prompt)))
   (when-let ((d (denote--valid-date date))
-             (denote-directory directory))
-    (denote--prepare-note title keywords nil d)
+             (denote-directory directory)
+             (id (format-time-string denote--id-format d)))
+    (denote--prepare-note title keywords nil d id)
     (denote--keywords-add-to-history keywords)))
 #+end_src
 
 *** Other settings
 #+begin_src emacs-lisp
-(setq denote-directory "~/Documents/notes")
+(setq denote-directory "~/NextCloud/Notes")
 (setq denote-known-keywords nil)
 #+end_src
 
