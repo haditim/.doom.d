@@ -41,7 +41,12 @@ rustup component add rust-src
 cargo +nightly install racer
 #+END_SRC
 
-*** Angular/Typescript
+*** Typescript
+#+BEGIN_SRC shell
+npm install -g typescript-language-server
+#+END_SRC
+
+*** Angular
 For having ng2 LSP capabilities run
 #+BEGIN_SRC shell
 npm install -g @angular/language-service@next typescript  @angular/language-server

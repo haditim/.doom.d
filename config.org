@@ -114,12 +114,12 @@ Look at [[*Denote][denote section]] for more info.
 #+begin_src emacs-lisp
 (doom-themes-treemacs-config)
 (after! treemacs
-  (treemacs-load-theme "doom-colors")
+  (treemacs-load-theme "doom-colors"))
 #+end_src
 
 *** Always follow open files
 #+begin_src emacs-lisp
-  (setq treemacs-follow-mode t))
+(setq treemacs-follow-mode t)
 #+end_src
 
 ** Font
