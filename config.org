@@ -109,6 +109,13 @@ Look at [[*Denote][denote section]] for more info.
  display-line-numbers-type 'relative)
 #+end_src
 
+** A bit of darker background for higher contrast
+#+begin_src emacs-lisp
+(custom-set-faces
+  '(default ((t (:background "gray4"))))
+  '(org-block ((t (:background "gray2")))))
+#+end_src
+
 ** Treemacs
 *** Fix icons problem
 #+begin_src emacs-lisp
