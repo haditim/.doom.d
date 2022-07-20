@@ -38,7 +38,7 @@
        snippets
 
        :emacs
-       (dired +icons)
+       (dired +icons +dirvish)
        electric
        (ibuffer +icons)
        (undo +tree)
