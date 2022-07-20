@@ -86,6 +86,14 @@ Look at [[*Denote][denote section]] for more info.
          ("b" #'denote-browse :desc "browse notes in denote directory"))))
 #+end_src
 
+** Dirvish dispatch
+#+begin_src emacs-lisp
+(map! :map (dirvish-mode dirvish-mode-map)
+  :leader
+  (:prefix "m"
+    ("d" #'dirvish-dispatch)))
+#+end_src
+
 * Look and feel
 ** Start fullscreen
 #+begin_src emacs-lisp
@@ -268,42 +276,6 @@ A small func to create a subdir for you in your notes directory.
 #+begin_src emacs-lisp
 (setq denote-directory "~/NextCloud/Notes")
 (setq denote-known-keywords nil)
-#+end_src
-
-* Dired
-** Packages
-#+begin_src emacs-lisp :tangle packages.el
-(package! dired-du)
-#+end_src
-
-** Hide files toggle on M-h
-#+begin_src emacs-lisp
-(setq my-dired-ls-switches "-alh --ignore=.* --ignore=\\#* --ignore=*~")
-
-(setq my-dired-switch 1)
-#+end_src
-
-** Don't ask questions about size
-#+begin_src emacs-lisp
-(setq large-file-warning-threshold nil)
-
-(add-hook 'dired-mode-hook
-          (lambda ()
-            "Set the right mode for new dired buffers."
-            (when (= my-dired-switch 1)
-              (dired-sort-other my-dired-ls-switches))))
-
-(add-hook 'dired-mode-hook
-          (lambda ()
-            (dired-hide-details-mode)  ; enable with "("
-            (define-key dired-mode-map (kbd "M-h")
-              (lambda ()
-                "Toggle between hide and show."
-                (interactive)
-                (setq my-dired-switch (- my-dired-switch))
-                (if (= my-dired-switch 1)
-                    (dired-sort-other my-dired-ls-switches)
-                  (dired-sort-other "-alh"))))))
 #+end_src
 
 * Avy
