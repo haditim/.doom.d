@@ -278,6 +278,12 @@ A small func to create a subdir for you in your notes directory.
 (setq denote-known-keywords nil)
 #+end_src
 
+* Dirvish
+A replacement for dired. Unpin the version forced but Doom Emacs as per [[https://github.com/alexluigit/dirvish/blob/main/CUSTOMIZING.org#using-dired-module-with-dirvish-flag][documentation]].
+#+begin_src emacs-lisp :tangle packages.el
+(unpin! dirvish)
+#+end_src
+
 * Avy
 Thanks to Karthink for his [[https://github.com/karthink/.emacs.d/issues/2][answer]] and his [[https://karthinks.com/software/avy-can-do-anything/][write-up]] on avy.
 #+begin_src emacs-lisp
