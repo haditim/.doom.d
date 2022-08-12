@@ -125,16 +125,12 @@ Look at [[*Denote][denote section]] for more info.
 #+end_src
 
 ** Treemacs
-*** Fix icons problem
+*** Fix icons problem and always follow opened file
 #+begin_src emacs-lisp
 (doom-themes-treemacs-config)
 (after! treemacs
-  (treemacs-load-theme "doom-colors"))
-#+end_src
-
-*** Always follow open files
-#+begin_src emacs-lisp
-(setq treemacs-follow-mode t)
+  (treemacs-load-theme "doom-colors")
+  (setq treemacs-follow-mode t))
 #+end_src
 
 ** Font
