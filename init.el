@@ -10,7 +10,6 @@
        :ui
        doom
        doom-dashboard
-       fill-column
        hl-todo
        hydra
        indent-guides
@@ -18,7 +17,7 @@
        nav-flash
        ophints
        (popup +defaults)
-       ligatures
+       ;; ligatures
        (treemacs +icons +lsp)
        vc-gutter
        vi-tilde-fringe
@@ -60,7 +59,7 @@
        ein
        (eval +overlay)
        (lookup +dictionary +offline)
-       (lsp)
+       (lsp +peek)
        magit
        make
        pdf

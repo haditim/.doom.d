@@ -137,7 +137,7 @@ Look at [[*Denote][denote section]] for more info.
 #+begin_src emacs-lisp
 (setq my-font
       (cl-find-if #'doom-font-exists-p
-                    '("DejaVu Sans Code"
+                    '("Hack"
                       "Dejavu Sans Mono")))
 (setq doom-font (font-spec :family my-font :size 15)
       doom-big-font (font-spec :family my-font :size 21))
@@ -276,7 +276,7 @@ A small func to create a subdir for you in your notes directory.
 
 * Dirvish
 A replacement for dired. Unpin the version forced but Doom Emacs as per [[https://github.com/alexluigit/dirvish/blob/main/CUSTOMIZING.org#using-dired-module-with-dirvish-flag][documentation]].
-#+begin_src emacs-lisp :tangle packages.el
+#+begin_src emacs-lisp :tangle no
 (unpin! dirvish)
 #+end_src
 
