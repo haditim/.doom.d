@@ -143,6 +143,26 @@ Look at [[*Denote][denote section]] for more info.
       doom-big-font (font-spec :family my-font :size 21))
 #+end_src
 
+** Aggressive indentation
+*** Package
+#+begin_src emacs-lisp :tangle packages.el
+(package! aggressive-indent)
+#+end_src
+*** Setup
+#+begin_src emacs-lisp
+(setq global-aggressive-indent-mode 1)
+#+end_src
+** Horizonatal scroll with mouse wheel or trackpad
+#+begin_src emacs-lisp
+(setq mouse-wheel-tilt-scroll t)
+#+end_src
+
+** Better scrolling (emacs 29+)
+#+begin_src emacs-lisp
+(when EMACS29+
+  (pixel-scroll-precision-mode 1))
+#+end_src
+
 * Programming languages
 
 ** Global settings
