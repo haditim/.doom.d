@@ -15,7 +15,7 @@ To use:
 #+end_src
 
 
-* Keybinds
+* General keybinds
 ** Jump to parenthesis with tab
 #+begin_src emacs-lisp
 (map! :n [tab] 'evil-jump-item)
@@ -54,44 +54,6 @@ To use:
 (map! :leader
       (:prefix "c"
        :desc "Kill compilation" "K" #'kill-compilation))
-#+end_src
-
-** subed-mode restore keybinds
-This assures ~evil~ does not conflict with [[https://github.com/sachac/subed][subed]] keybinds.
-#+begin_src emacs-lisp
-(map! :map (subed-mode subed-srt-mode-map)
-  :n "M-p" #'subed-backward-subtitle-text
-  :n "M-n" #'subed-forward-subtitle-text
-  :leader                           ; Use leader key from now on
-  :desc "MPV play/pause" "<RET>" #'subed-mpv-toggle-pause)
-#+end_src
-
-** Find other file (switch between .c and .h)
-#+begin_src emacs-lisp
-(map! :leader
-      (:prefix "f"
-       :desc "Find other file (.c, .h)" "o" #'ff-find-other-file))
-#+end_src
-
-** denote keybinds
-Look at [[*Denote][denote section]] for more info.
-#+begin_src emacs-lisp
-(map! :leader
-      (:prefix "n"
-        (:prefix ("D" . "denote")
-         ("N" #'denote-subdirectory-new :desc "new note in new subdirectory")
-         ("n" #'denote-subdirectory :desc "new note in existing subdirecory")
-         ("D" #'denote-subdirectory-with-date :desc "new note in existing subdirecory with date")
-         ("d" #'denote :desc "new note in main notes dir")
-         ("b" #'denote-browse :desc "browse notes in denote directory"))))
-#+end_src
-
-** Dirvish dispatch
-#+begin_src emacs-lisp
-(map! :map (dirvish-mode dirvish-mode-map)
-  :leader
-  (:prefix "m"
-    ("d" #'dirvish-dispatch)))
 #+end_src
 
 * Look and feel
@@ -140,7 +102,7 @@ Look at [[*Denote][denote section]] for more info.
                     '("Hack"
                       "Dejavu Sans Mono")))
 (setq doom-font (font-spec :family my-font :size 15)
-      doom-big-font (font-spec :family my-font :size 21))
+      doom-big-font (font-spec :family my-font :size 20))
 #+end_src
 
 ** Aggressive indentation
@@ -182,6 +144,14 @@ Look at [[*Denote][denote section]] for more info.
 #+end_src
 
 ** Python
+*** Keybinds
+#+begin_src emacs-lisp
+(map! :after python
+      :map python-mode-map
+      :localleader
+      (:prefix ("d" . "dependency management")
+        :desc "Poetry dispatch" "p" #'poetry))
+#+end_src
 *** Packages
 #+begin_src emacs-lisp :tangle packages.el
 (package! py-autopep8)
@@ -194,6 +164,13 @@ Look at [[*Denote][denote section]] for more info.
 #+end_src
 
 ** C
+*** Keybinds
+**** Find other file (switch between .c and .h)
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix "f"
+       :desc "Find other file (.c, .h)" "o" #'ff-find-other-file))
+#+end_src
 *** Linux kernel indentation
 #+begin_src emacs-lisp
 (setq c-default-style "linux"
@@ -258,7 +235,19 @@ Look at [[*Denote][denote section]] for more info.
 The package [[https://github.com/protesilaos/denote][denote]] is a nice note-taking package. I use it here to keep my
 notes in one place with relevant folders. Keybinds are defined in [[*Denote keybinds][denote keybinds]].
 
-*** denote custom function
+*** Keybinds
+Look at [[*Denote][denote section]] for more info.
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix "n"
+        (:prefix ("D" . "denote")
+         ("N" #'denote-subdirectory-new :desc "new note in new subdirectory")
+         ("n" #'denote-subdirectory :desc "new note in existing subdirecory")
+         ("D" #'denote-subdirectory-with-date :desc "new note in existing subdirecory with date")
+         ("d" #'denote :desc "new note in main notes dir")
+         ("b" #'denote-browse :desc "browse notes in denote directory"))))
+#+end_src
+*** Custom function
 A small func to create a subdir for you in your notes directory.
 #+begin_src emacs-lisp
 (require 'f)
@@ -296,6 +285,14 @@ A small func to create a subdir for you in your notes directory.
 
 * Dirvish
 A replacement for dired. Unpin the version forced but Doom Emacs as per [[https://github.com/alexluigit/dirvish/blob/main/CUSTOMIZING.org#using-dired-module-with-dirvish-flag][documentation]].
+** Keybinds
+*** Dispatch
+#+begin_src emacs-lisp
+(map!
+ :map dirvish-mode-map
+  :localleader
+    ("d" #'dirvish-dispatch))
+#+end_src
 #+begin_src emacs-lisp :tangle no
 (unpin! dirvish)
 #+end_src
@@ -320,6 +317,17 @@ Thanks to Karthink for his [[https://github.com/karthink/.emacs.d/issues/2][answ
   :recipe (:host github :repo "sachac/subed"
            :files ("subed/*.el")))
 (package! lorem-ipsum)
+#+end_src
+
+** Subed-mode
+*** restore keybinds
+This assures ~evil~ does not conflict with [[https://github.com/sachac/subed][subed]] keybinds.
+#+begin_src emacs-lisp
+(map! :map (subed-mode subed-srt-mode-map)
+  :n "M-p" #'subed-backward-subtitle-text
+  :n "M-n" #'subed-forward-subtitle-text
+  :leader                           ; Use leader key from now on
+  :desc "MPV play/pause" "<RET>" #'subed-mpv-toggle-pause)
 #+end_src
 
 * Misc config (not very important and can be removed)
