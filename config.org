@@ -201,6 +201,12 @@ To use:
           (lambda () (set-fontset-font t 'arabic (font-spec :family "Droid Naskh Shift Alt"))))
 #+end_src
 
+* DevOps
+** Kubernetes
+#+begin_src emacs-lisp :tangle packages.el
+(package! kubernetes)
+#+end_src
+
 * Compilation
 ** Always scroll
 #+begin_src emacs-lisp
