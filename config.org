@@ -207,6 +207,13 @@ To use:
 (package! kubernetes)
 #+end_src
 
+*** Keybinds
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix "o"
+        ("k" #'kubernetes-dispatch :desc "Kubernetes")))
+#+end_src
+
 * Compilation
 ** Always scroll
 #+begin_src emacs-lisp
