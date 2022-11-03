@@ -72,18 +72,48 @@ To use:
 (setq doom-modeline-major-mode-icon t)
 #+end_src
 
-** doom-molokai for the theme
+** Relative line numbers
 #+begin_src emacs-lisp
 (setq
- doom-theme 'doom-molokai
  display-line-numbers-type 'relative)
 #+end_src
 
-** A bit of darker background for higher contrast
+** Toggle dark/light theme
 #+begin_src emacs-lisp
-(custom-set-faces
-  '(default ((t (:background "gray4"))))
-  '(org-block ((t (:background "gray2")))))
+(setq light-theme 'dichromacy)
+(setq dark-theme  'doom-molokai)
+
+(defun my/toggle-theme ()
+  (interactive)
+  (cond ((eq (car custom-enabled-themes) light-theme)
+         (mapc #'disable-theme custom-enabled-themes)
+         (load-theme dark-theme t)
+         (set-face-attribute 'default nil
+                             :background "gray4")
+         (set-face-attribute 'org-block nil
+                             :background "gray2"))
+        ((eq (car custom-enabled-themes) dark-theme)
+         (mapc #'disable-theme custom-enabled-themes)
+         (load-theme light-theme t))
+        (t
+         (load-theme dark-theme t))))
+#+end_src
+
+*** keybinds
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix "t"
+       :desc "toggle dark mode" "d" #'my/toggle-theme))
+#+end_src
+
+*** Set it as default on start
+#+begin_src emacs-lisp
+(setq doom-theme dark-theme)
+;; make some dark BGs darker
+(set-face-attribute 'default nil
+                    :background "gray4")
+(set-face-attribute 'org-block nil
+                    :background "gray2")
 #+end_src
 
 ** Treemacs
