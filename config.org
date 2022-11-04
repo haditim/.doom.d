@@ -78,42 +78,45 @@ To use:
  display-line-numbers-type 'relative)
 #+end_src
 
-** Toggle dark/light theme
+** Themes
+
+*** Define dark/light themes
 #+begin_src emacs-lisp
-(setq light-theme 'dichromacy)
+(setq light-theme 'doom-solarized-light)
+(setq light-background "white")
+(setq light-org-background "floral white")
+
 (setq dark-theme  'doom-molokai)
+(setq dark-background "gray4")
+(setq dark-org-background "gray2")
+#+end_src
+
+*** Toggle dark/light theme
+#+begin_src emacs-lisp
+(defun my/change-theme (theme-name background-color org-background-color)
+        (mapc #'disable-theme custom-enabled-themes)
+        (load-theme theme-name t)
+        (set-face-attribute 'default nil
+                            :background background-color)
+        (set-face-attribute 'org-block nil
+                            :background org-background-color))
 
 (defun my/toggle-theme ()
   (interactive)
   (cond ((eq (car custom-enabled-themes) light-theme)
-         (mapc #'disable-theme custom-enabled-themes)
-         (load-theme dark-theme t)
-         (set-face-attribute 'default nil
-                             :background "gray4")
-         (set-face-attribute 'org-block nil
-                             :background "gray2"))
+         (my/change-theme dark-theme dark-background dark-org-background))
         ((eq (car custom-enabled-themes) dark-theme)
-         (mapc #'disable-theme custom-enabled-themes)
-         (load-theme light-theme t))
+         (my/change-theme light-theme light-background light-org-background))
         (t
-         (load-theme dark-theme t))))
-#+end_src
+         (my/change-theme dark-theme dark-background dark-org-background))))
 
-*** keybinds
-#+begin_src emacs-lisp
+;; keybinds
 (map! :leader
       (:prefix "t"
        :desc "toggle dark mode" "d" #'my/toggle-theme))
-#+end_src
 
-*** Set it as default on start
-#+begin_src emacs-lisp
-(setq doom-theme dark-theme)
-;; make some dark BGs darker
-(set-face-attribute 'default nil
-                    :background "gray4")
-(set-face-attribute 'org-block nil
-                    :background "gray2")
+;; run on the start to set dark theme
+(my/toggle-theme)
 #+end_src
 
 ** Treemacs
@@ -220,6 +223,7 @@ To use:
 #+end_src
 
 * Human languages
+
 ** Enable Persian/Arabic and other RTL languages in org-mode
 #+begin_src emacs-lisp
 (add-hook 'org-mode-hook #'+bidi-mode)
@@ -237,6 +241,11 @@ To use:
 This is a privacy-based google-translate middleware.
 #+begin_src emacs-lisp :tangle packages.el
 (package! lingva)
+#+end_src
+
+*** Dict.cc translation
+#+begin_src emacs-lisp :tangle packages.el
+(package! dictcc)
 #+end_src
 
 * DevOps
