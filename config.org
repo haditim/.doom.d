@@ -99,7 +99,13 @@ To use:
         (set-face-attribute 'default nil
                             :background background-color)
         (set-face-attribute 'org-block nil
-                            :background org-background-color))
+                            :background org-background-color)
+        ;; a hack to make sure font does not get too big
+        (if (doom/describe-active-minor-mode doom-big-font-mode)
+           (progn (doom/reset-font-size)
+                  (doom-big-font-mode))
+           (doom/reset-font-size)))
+
 
 (defun my/toggle-theme ()
   (interactive)
