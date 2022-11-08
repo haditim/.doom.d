@@ -80,49 +80,18 @@ To use:
 
 ** Themes
 
-*** Define dark/light themes
+*** doom-molokai for the theme
 #+begin_src emacs-lisp
-(setq light-theme 'doom-solarized-light)
-(setq light-background "white")
-(setq light-org-background "floral white")
-
-(setq dark-theme  'doom-molokai)
-(setq dark-background "gray4")
-(setq dark-org-background "gray2")
+(setq
+ doom-theme 'doom-molokai
+ display-line-numbers-type 'relative)
 #+end_src
 
-*** Toggle dark/light theme
+*** A bit of darker background for higher contrast
 #+begin_src emacs-lisp
-(defun my/change-theme (theme-name background-color org-background-color)
-        (mapc #'disable-theme custom-enabled-themes)
-        (load-theme theme-name t)
-        (set-face-attribute 'default nil
-                            :background background-color)
-        (set-face-attribute 'org-block nil
-                            :background org-background-color)
-        ;; a hack to make sure font does not get too big
-        (if (doom/describe-active-minor-mode doom-big-font-mode)
-           (progn (doom/reset-font-size)
-                  (doom-big-font-mode))
-           (doom/reset-font-size)))
-
-
-(defun my/toggle-theme ()
-  (interactive)
-  (cond ((eq (car custom-enabled-themes) light-theme)
-         (my/change-theme dark-theme dark-background dark-org-background))
-        ((eq (car custom-enabled-themes) dark-theme)
-         (my/change-theme light-theme light-background light-org-background))
-        (t
-         (my/change-theme dark-theme dark-background dark-org-background))))
-
-;; keybinds
-(map! :leader
-      (:prefix "t"
-       :desc "toggle dark mode" "d" #'my/toggle-theme))
-
-;; run on the start to set dark theme
-(my/toggle-theme)
+(custom-set-faces
+  '(default ((t (:background "gray4"))))
+  '(org-block ((t (:background "gray2")))))
 #+end_src
 
 ** Treemacs
