@@ -1,3 +1,5 @@
+NOTE: this repo is now hosted mainly on [[https://codeberg.org/haditim/.doom.d][Codeberg]] and [[https://github.com/haditim/.doom.d][GitHub]] serves as its mirror.
+
 * .doom.d
 My personal [[https://github.com/doomemacs/doomemacs][Doom Emacs]] settings.
 * Usage
