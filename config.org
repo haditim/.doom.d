@@ -190,6 +190,10 @@ To use:
 (package! live-py-mode)
 (package! py-yapf)
 #+end_src
+*** dap debugger
+#+begin_src emacs-lisp
+(setq dap-python-debugger 'debugpy)
+#+end_src
 
 ** C
 *** Keybinds
