@@ -85,7 +85,11 @@ If you never used vim or Emacs, read these up
 - [[https://github.com/hlissner/doom-emacs/blob/develop/modules/editor/evil/README.org#ported-vim-plugins][Ported vim plugins]] in doom docs
 
 * Personal notes
+<<<<<<< HEAD
 ** Double remotes for the repo
+=======
+** Double remotes for the repo (personal note)
+>>>>>>> 3c9ca8e (add always sign commits note to README)
 For setting up two remotes for the repo, one should usually do the following (taken from [[https://jigarius.com/blog/multiple-git-remote-repositories][this blog post]]):
 #+begin_src shell
 git remote add all REMOTE-URL-1
