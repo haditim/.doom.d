@@ -6,7 +6,7 @@ My personal [[https://github.com/doomemacs/doomemacs][Doom Emacs]] settings.
 ** Clone this repo
 #+BEGIN_SRC shell
 mv .doom.d .doom.d.bak
-git clone https://github.com/haditim/.doom.d
+git clone https://codeberg.org/haditim/.doom.d
 #+END_SRC
 
 ** Install Doom Emacs
