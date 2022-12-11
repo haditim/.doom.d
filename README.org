@@ -84,7 +84,8 @@ If you never used vim or Emacs, read these up
 - [[https://github.com/hlissner/doom-emacs/blob/develop/modules/editor/evil/config.el#L413-L460][vim-unimpaired provided by doom]]
 - [[https://github.com/hlissner/doom-emacs/blob/develop/modules/editor/evil/README.org#ported-vim-plugins][Ported vim plugins]] in doom docs
 
-* Double remotes for the repo (personal note)
+* Personal notes
+** Double remotes for the repo
 For setting up two remotes for the repo, one should usually do the following (taken from [[https://jigarius.com/blog/multiple-git-remote-repositories][this blog post]]):
 #+begin_src shell
 git remote add all REMOTE-URL-1
@@ -104,4 +105,13 @@ But the quick way would be to add the following to the =.git/config=:
 	fetch = +refs/heads/*:refs/remotes/all/*
 	pushurl = git@codeberg.org:haditim/.doom.d.git
 	pushurl = git@github.com:haditim/.doom.d.git
+#+end_src
+** Always sign commits in this repo
+#+begin_src shell
+git config --local commit.gpgsign true
+#+end_src
+Or add the following to the =.git/config=
+#+begin_src shell
+[commit]
+	gpgsign = true
 #+end_src
