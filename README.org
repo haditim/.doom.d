@@ -26,7 +26,7 @@ The [[file:config.org][config file]] is supposed to be self-documenting.
 * Optional extra steps
 ** Look and feel
 *** Ligatures
-My setting will use =HackFCLigatured= for ligatures support if it exists, otherwise falls back to =DejaVu Sans Mono= (set in =:ui ligatures= in doom's =init.el=). You can install it using ~pacaur -Sy ttf-hack-ligatured~ or download it from [[https://github.com/gaplo917/Ligatured-Hack][its repo]].
+My setting will use =Hack FC Ligatured= for ligatures support if the font exists (ligatures are enabled in =:ui ligatures= in doom's =init.el=), otherwise falls back to =DejaVu Sans Mono= . You can install it using ~pacaur -Sy ttf-hack-ligatured~ or download it from [[https://github.com/gaplo917/Ligatured-Hack][its repo]].
 
 ** Programming languages
 *** Python
