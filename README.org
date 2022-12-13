@@ -3,16 +3,17 @@ NOTE: this repo is now hosted mainly on [[https://codeberg.org/haditim/.doom.d][
 * .doom.d
 My personal [[https://github.com/doomemacs/doomemacs][Doom Emacs]] settings.
 * Usage
-** Clone this repo
-#+BEGIN_SRC shell
-mv .doom.d .doom.d.bak
-git clone https://codeberg.org/haditim/.doom.d
-#+END_SRC
-
 ** Install Doom Emacs
 #+BEGIN_SRC shell
 git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
+#+END_SRC
+
+** Clone this repo and resync your doom installation
+#+BEGIN_SRC shell
+mv .doom.d .doom.d.bak
+git clone https://codeberg.org/haditim/.doom.d
+~/.emacs.d/bin/doom sync
 #+END_SRC
 
 ** Reload Doom Emacs
