@@ -17,7 +17,7 @@
        nav-flash
        ophints
        (popup +defaults)
-       ;; ligatures
+       ligatures
        (treemacs +icons +lsp)
        vc-gutter
        vi-tilde-fringe

@@ -106,11 +106,11 @@ To use:
 ** Font
 #+begin_src emacs-lisp
 (setq my-font
-      (cl-find-if #'doom-font-exists-p
-                    '("Hack"
-                      "Dejavu Sans Mono")))
+  (cl-find-if #'doom-font-exists-p
+    '("Hack FC Ligatured"
+      "Dejavu Sans Mono")))
 (setq doom-font (font-spec :family my-font :size 15)
-      doom-big-font (font-spec :family my-font :size 20))
+  doom-big-font (font-spec :family my-font :size 20))
 #+end_src
 
 ** Aggressive indentation

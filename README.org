@@ -9,26 +9,25 @@ git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
 ~/.emacs.d/bin/doom install
 #+END_SRC
 
-** Clone this repo and resync your doom installation
+** Clone this repo
 #+BEGIN_SRC shell
 mv .doom.d .doom.d.bak
 git clone https://codeberg.org/haditim/.doom.d
-~/.emacs.d/bin/doom sync
 #+END_SRC
 
 ** Reload Doom Emacs
 Using ~M-x doom/reload~ inside Emacs or =~/.emacs.d/bin/doom sync= in terminal. This assures that the literal ~config.org~ gets processed.
 
-
-** Optional: install DejaVuSansCode
-My setting will fall back to DejaVu Sans Mono if this font does not exist. The only difference is that [[https://github.com/SSNikolaevich/DejaVuSansCode][DejaVuSansCode]] supports ligatures (set in =:ui ligatures= in doom's =init.el=).
-
 ** done!
 
 * Documentation
-The [[file:config.org][config file]] is self documenting.
+The [[file:config.org][config file]] is supposed to be self-documenting.
 
-* Optional: extra steps
+* Optional extra steps
+** Look and feel
+*** Ligatures
+My setting will use =HackFCLigatured= for ligatures support if it exists, otherwise falls back to =DejaVu Sans Mono= (set in =:ui ligatures= in doom's =init.el=). You can install it using ~pacaur -Sy ttf-hack-ligatured~ or download it from [[https://github.com/gaplo917/Ligatured-Hack][its repo]].
+
 ** Programming languages
 *** Python
 - Install [[https://github.com/python-lsp/python-lsp-server][pylsp]] ~pip install 'python-lsp-server[all]'~
@@ -78,6 +77,7 @@ To user vala with LSP, install [[https://github.com/vala-lang/vala-language-serv
 ** Misc
 *** Set spell checker language
 For changing the dictionary for spell checker, do =M-x ispell-change-dictionary= and switch to the language you want. Don't forget to have =hunspell= dictionaries installed before doing this.
+
 
 * Useful reads
 If you never used vim or Emacs, read these up
