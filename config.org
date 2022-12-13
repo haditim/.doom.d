@@ -114,9 +114,6 @@ To use:
   doom-big-font (font-spec :family my-font :size 20))
 #+end_src
 
-#+RESULTS:
-: #<font-spec nil nil Hack\ FC\ Ligatured nil nil nil nil nil 20 nil nil nil nil>
-
 ** Aggressive indentation
 *** Package
 #+begin_src emacs-lisp :tangle packages.el
