@@ -203,12 +203,21 @@ To use:
 #+begin_src emacs-lisp
 (setq dap-python-debugger 'debugpy)
 #+end_src
-*** disable =poetry-tracking-mode=
+*** Disable =poetry-tracking-mode=
 #+begin_src emacs-lisp :tanlge packages.el
 (use-package! poetry
   :after python
   :init
   (setq poetry-tracking-strategy 'switch-buffer))
+#+end_src
+*** Remote LSP server (using =python-lsp-server=)
+#+begin_src emacs-lisp
+(after! lsp-mode
+        (lsp-register-client
+            (make-lsp-client :new-connection (lsp-tramp-connection "pylsp")
+                             :major-modes '(python-mode)
+                             :remote? t
+                             :server-id 'pyls-remote)))
 #+end_src
 
 ** C
