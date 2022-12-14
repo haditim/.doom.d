@@ -197,18 +197,15 @@ To use:
 (package! python-pylint)
 (package! live-py-mode)
 (package! py-yapf)
-(package! poetry)
 #+end_src
 *** dap debugger
 #+begin_src emacs-lisp
 (setq dap-python-debugger 'debugpy)
 #+end_src
 *** Disable =poetry-tracking-mode=
-#+begin_src emacs-lisp :tanlge packages.el
-(use-package! poetry
-  :after python
-  :init
-  (setq poetry-tracking-strategy 'switch-buffer))
+#+begin_src emacs-lisp
+(after! python
+  (remove-hook! 'python-mode-hook #'poetry-tracking-mode))
 #+end_src
 *** Remote LSP server (using =python-lsp-server=)
 #+begin_src emacs-lisp
