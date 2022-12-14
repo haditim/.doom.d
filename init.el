@@ -83,7 +83,7 @@
        org
        raku
        php
-       (python +lsp +dap +poetry)
+       (python +lsp +dap)
        rest
        (rust +lsp)
        (scheme +guile)
