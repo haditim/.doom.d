@@ -104,7 +104,7 @@ To use:
 (my/dark-theme)
 #+end_src
 
-*** Set relative line numbers
+** Set relative line numbers
 #+begin_src emacs-lisp
 (setq display-line-numbers-type 'relative)
 #+end_src
