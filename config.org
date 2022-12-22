@@ -169,12 +169,20 @@ To use:
      'face 'doom-dashboard-banner)))
 #+end_src
 
-** Enable mouse mode in terminal (and enable system clipboard)
+** Mouse interactions
+*** Enable mouse mode in terminal (and enable system clipboard)
 #+begin_src emacs-lisp
 (setq xterm-mouse-mode t
       select-enable-clipboard t)
 #+end_src
 
+*** Set Ctrl+middle click to multi-cursor editing (evil)
+I don't know why we need ~(global-evil-mc-mode +1)~ but we get an error without it.
+#+begin_src emacs-lisp
+(global-evil-mc-mode +1)
+(global-unset-key (kbd "C-<down-mouse-2>"))
+(global-set-key (kbd "C-<mouse-2>") 'evil-mc-toggle-cursor-on-click)
+#+end_src
 
 * Programming languages
 
