@@ -405,7 +405,17 @@ A replacement for dired. Unpin the version forced but Doom Emacs as per [[https:
 Thanks to Karthink for his [[https://github.com/karthink/.emacs.d/issues/2][answer]] and his [[https://karthinks.com/software/avy-can-do-anything/][write-up]] on avy.
 #+begin_src emacs-lisp
 (setq avy-all-windows t)
+
 #+end_src
+
+** Keybinds
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix-map ("y" . "yank")
+       :desc "copy lines" "l" #'avy-copy-line
+       :desc "copy region" "r" #'avy-copy-region))
+#+end_src
+
 * Projects
 ** Set projects path
 #+begin_src emacs-lisp
