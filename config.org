@@ -333,8 +333,7 @@ This is a privacy-based google-translate middleware.
 (package! eldoc-box)
 (package! org-download)
 (package! org-modern)
-(package! denote
-  :recipe (:host nil :repo "https://git.sr.ht/~protesilaos/denote"))
+(package! denote)
 #+end_src
 
 ** org-modern-mode global

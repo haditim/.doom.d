@@ -16,7 +16,7 @@ git clone https://codeberg.org/haditim/.doom.d
 #+END_SRC
 
 ** Reload Doom Emacs
-Using ~M-x doom/reload~ inside Emacs or =~/.emacs.d/bin/doom sync= in terminal. This assures that the literal ~config.org~ gets processed.
+Using =M-x doom/reload= inside Emacs or =~/.emacs.d/bin/doom sync= in terminal. This assures that the literal ~config.org~ gets processed.
 
 ** done!
 
