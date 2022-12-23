@@ -129,6 +129,13 @@ To use:
   doom-big-font (font-spec :family my-font :size 20))
 #+end_src
 
+** Toggle ligatures in current buffer
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix "t"
+       :desc "ligatures (composition)" "L" #'auto-composition-mode))
+#+end_src
+
 ** Aggressive indentation
 *** Package
 #+begin_src emacs-lisp :tangle packages.el
