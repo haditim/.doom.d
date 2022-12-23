@@ -63,7 +63,7 @@ npm install --global vscode-html-languageserver-bin
 #+END_SRC
 
 *** Kotlin
-For getting Kotlin to work, you need to install [[https://github.com/fwcd/kotlin-language-server][kotlin-language-server]].
+For getting Kotlin to work, you need to install [[https://github.com/fwcd/kotlin-language-server][kotlin-language-server]]. For formatting [[https://github.com/pinterest/ktlint][ktlint]] can be used. If the format buffer does not work as you expect, especially with indentations, use modifier key with it (i.e. =SPC u SPC c f=) and pick ktlint as formatter. If this also does not work, you can fall back to running shell command on the buffer's file with =M-!= pushing down arrow (or ctrl-n once) and prefix your file name with ~ktlint -F~.
 
 *** Flutter
 Install dart and Flutter SDK. To open emulator, run

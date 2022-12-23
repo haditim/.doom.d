@@ -56,6 +56,13 @@ To use:
        :desc "Kill compilation" "K" #'kill-compilation))
 #+end_src
 
+** Toggle ligatures in current buffer
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix "t"
+       :desc "ligatures (composition)" "L" #'auto-composition-mode))
+#+end_src
+
 * Look and feel
 ** Start fullscreen
 #+begin_src emacs-lisp
@@ -127,13 +134,6 @@ To use:
       "Dejavu Sans Mono")))
 (setq doom-font (font-spec :family my-font :size 15)
   doom-big-font (font-spec :family my-font :size 20))
-#+end_src
-
-** Toggle ligatures in current buffer
-#+begin_src emacs-lisp
-(map! :leader
-      (:prefix "t"
-       :desc "ligatures (composition)" "L" #'auto-composition-mode))
 #+end_src
 
 ** Aggressive indentation
