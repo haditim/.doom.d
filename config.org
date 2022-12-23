@@ -187,8 +187,8 @@ To use:
 I don't know why we need ~(global-evil-mc-mode +1)~ but we get an error without it.
 #+begin_src emacs-lisp
 (global-evil-mc-mode +1)
-(global-unset-key (kbd "C-<down-mouse-2>"))
-(global-set-key (kbd "C-<mouse-2>") 'evil-mc-toggle-cursor-on-click)
+(map! "C-<down-mouse-2>" nil)
+(map! "C-<mouse-2>" 'evil-mc-toggle-cursor-on-click)
 #+end_src
 
 * Programming languages
