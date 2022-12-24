@@ -63,6 +63,13 @@ To use:
        :desc "ligatures (composition)" "L" #'auto-composition-mode))
 #+end_src
 
+** Hydra for window interactions
+Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open this hydra and q to close it.
+#+begin_src emacs-lisp
+(map! :map evil-window-map
+      "SPC" #'+hydra/window-nav/body)
+#+end_src
+
 * Look and feel
 ** Start fullscreen
 #+begin_src emacs-lisp
