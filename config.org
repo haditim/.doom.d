@@ -190,12 +190,14 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
       select-enable-clipboard t)
 #+end_src
 
-*** Set Ctrl+middle click to multi-cursor editing (evil)
-I don't know why we need ~(global-evil-mc-mode +1)~ but we get an error without it.
+*** Set =C-middle click= to multi-cursor editing (evil)
 #+begin_src emacs-lisp
-(global-evil-mc-mode +1)
+(defun my/toggle-cursor-on-click (event)
+  (interactive "e")
+  (evil-mc-mode)
+  (evil-mc-toggle-cursor-on-click event))
 (map! "C-<down-mouse-2>" nil)
-(map! "C-<mouse-2>" 'evil-mc-toggle-cursor-on-click)
+(map! "C-<mouse-2>" #'my/toggle-cursor-on-click)
 #+end_src
 
 * Programming languages
