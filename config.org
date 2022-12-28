@@ -63,6 +63,13 @@ To use:
        :desc "ligatures (composition)" "L" #'auto-composition-mode))
 #+end_src
 
+** Toggle =rainbow-delimiters-mode=
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix "t"
+       :desc "rainbow delimiters" "R" 'rainbow-delimiters-mode))
+#+end_src
+
 ** Hydra for window interactions
 Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open this hydra and q to close it.
 #+begin_src emacs-lisp
@@ -73,7 +80,7 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 * Look and feel
 ** Start fullscreen
 #+begin_src emacs-lisp
-(toggle-frame-fullscreen)
+(add-to-list 'initial-frame-alist '(fullscreen . maximized))
 #+end_src
 
 ** Don't ask to quit
