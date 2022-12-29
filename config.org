@@ -236,13 +236,9 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 #+end_src
 *** Packages
 #+begin_src emacs-lisp :tangle packages.el
-(package! py-autopep8)
-(package! blacken)
 (package! pip-requirements)
 (package! python-pytest)
-(package! python-pylint)
 (package! live-py-mode)
-(package! py-yapf)
 #+end_src
 *** dap debugger
 #+begin_src emacs-lisp
@@ -253,6 +249,12 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 (after! python
   (remove-hook! 'python-mode-hook #'poetry-tracking-mode))
 #+end_src
+
+*** Local LSP server settings
+#+begin_src emacs-lisp
+(setq lsp-pylsp-plugins-pylint-enabled t)
+#+end_src
+
 *** Remote LSP server (using =python-lsp-server=)
 #+begin_src emacs-lisp
 (after! lsp-mode
