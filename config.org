@@ -146,6 +146,7 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
     '("Hack FC Ligatured"
       "Dejavu Sans Code"
       "Dejavu Sans Mono")))
+
 (setq doom-font (font-spec :family my-font :size 15)
   doom-big-font (font-spec :family my-font :size 20))
 #+end_src

@@ -18,6 +18,9 @@ git clone https://codeberg.org/haditim/.doom.d
 ** Reload Doom Emacs
 Using =M-x doom/reload= inside Emacs or =~/.emacs.d/bin/doom sync= in terminal. This assures that the literal ~config.org~ gets processed.
 
+** Install necessary font
+Minimally install /Dejavu Sans/ font by ~pacaur -Sy ttf-dejavu~ or modify section =Look and feel -> Font= in ~config.org~.
+
 ** done!
 
 * Documentation
