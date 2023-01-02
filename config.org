@@ -240,6 +240,7 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 (package! pip-requirements)
 (package! python-pytest)
 (package! live-py-mode)
+(package! py-yapf)
 #+end_src
 *** dap debugger
 #+begin_src emacs-lisp
