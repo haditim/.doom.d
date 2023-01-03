@@ -19,6 +19,15 @@ To use:
 ** Set localleader
 #+begin_src emacs-lisp
 (setq doom-localleader-key ",")
+
+;; Also use SPC m for localleader
+(defun my/call-localleader ()
+  (interactive)
+  (setq unread-command-events (listify-key-sequence ",")))
+
+(map! :leader (:desc "localleader" "m" #'my/call-localleader))
+
+;; (global-set-key (kbd "C-`") (kbd ","))
 #+end_src
 ** Jump to parenthesis with tab
 #+begin_src emacs-lisp
