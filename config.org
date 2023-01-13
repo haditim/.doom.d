@@ -96,6 +96,11 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 #+end_src
 
+** Dashboard image (3D logo created by [[https://hadi.timachi.com/project/9/GNU_Emacs_3D_logo][me]])
+#+begin_src emacs-lisp
+(setq fancy-splash-image "~/.doom.d/emacs.png")
+#+end_src
+
 ** Don't ask to quit
 #+begin_src emacs-lisp
 (setq confirm-kill-emacs nil)
@@ -182,26 +187,6 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 #+begin_src emacs-lisp
 (when EMACS29+
   (pixel-scroll-precision-mode 1))
-#+end_src
-
-** Simpler splash ASCII
-#+begin_src emacs-lisp
-(defun doom-dashboard-draw-ascii-banner-fn ()
-  (let* ((banner
-          '(",---.,-.-.,---.,---.,---."
-            "|---'| | |,---||    `---."
-            "`---'` ' '`---^`---'`---'"))
-         (longest-line (apply #'max (mapcar #'length banner))))
-    (put-text-property
-     (point)
-     (dolist (line banner (point))
-       (insert (+doom-dashboard--center
-                +doom-dashboard--width
-                (concat
-                 line (make-string (max 0 (- longest-line (length line)))
-                                   32)))
-               "\n"))
-     'face 'doom-dashboard-banner)))
 #+end_src
 
 ** Mouse interactions
