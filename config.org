@@ -97,7 +97,7 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 #+end_src
 
 ** Dashboard
-*** Simpler splash ASCII (only the fallback mode e.g. when run in shell)
+*** Simpler splash ASCII (only the fallback mode e.g. when run in terminal)
 #+begin_src emacs-lisp
 (defun doom-dashboard-draw-ascii-banner-fn ()
   (let* ((banner
