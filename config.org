@@ -96,7 +96,28 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 (add-to-list 'initial-frame-alist '(fullscreen . maximized))
 #+end_src
 
-** Dashboard image (3D logo created by [[https://hadi.timachi.com/project/9/GNU_Emacs_3D_logo][me]])
+** Dashboard
+*** Simpler splash ASCII (only the fallback mode e.g. when run in shell)
+#+begin_src emacs-lisp
+(defun doom-dashboard-draw-ascii-banner-fn ()
+  (let* ((banner
+          '(",---.,-.-.,---.,---.,---."
+            "|---'| | |,---||    `---."
+            "`---'` ' '`---^`---'`---'"))
+         (longest-line (apply #'max (mapcar #'length banner))))
+    (put-text-property
+     (point)
+     (dolist (line banner (point))
+       (insert (+doom-dashboard--center
+                +doom-dashboard--width
+                (concat
+                 line (make-string (max 0 (- longest-line (length line)))
+                                   32)))
+               "\n"))
+     'face 'doom-dashboard-banner)))
+#+end_src
+
+*** Image (3D logo created by [[https://hadi.timachi.com/project/9/GNU_Emacs_3D_logo][me]])
 #+begin_src emacs-lisp
 (setq fancy-splash-image "~/.doom.d/emacs.png")
 #+end_src
@@ -120,23 +141,26 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 ** Themes
 *** Switch themes between light and dark
 #+begin_src emacs-lisp
+(setq dark-theme 'doom-gruvbox)
+(setq light-theme 'modus-operandi)
+
 (defun my/light-theme ()
   (interactive)
-  (progn
-    (setq doom-theme 'modus-operandi)
-    (custom-reset-faces
-     '(default ((t (:background))))
-     '(org-block ((t (:background)))))
-    (consult-theme 'modus-operandi)))
+  (setq doom-theme light-theme)
+  ; revert darker backgrounds
+  (custom-reset-faces
+   '(default ((t (:background))))
+   '(org-block ((t (:background)))))
+  (consult-theme light-theme))
 
 (defun my/dark-theme ()
   (interactive)
-  (progn
-    (setq doom-theme 'doom-molokai)
-    (custom-set-faces
-     '(default ((t (:background "gray4"))))
-     '(org-block ((t (:background "gray2")))))
-    (consult-theme 'doom-molokai)))
+  (setq doom-theme dark-theme)
+  ; make backgrounds darker for more contrast
+  (custom-set-faces
+   '(default ((t (:background "gray4"))))
+   '(org-block ((t (:background "gray2")))))
+  (consult-theme dark-theme))
 #+end_src
 *** Dark theme as default
 #+begin_src emacs-lisp
