@@ -361,6 +361,27 @@ This is a privacy-based google-translate middleware.
         (setq compilation-scroll-output t))
 #+end_src
 
+** Run commands in tmux [[https://gist.github.com/pablocobelli/7e92930dda471c7806eabdc6c77d99b7][adapted from this gist]]
+#+begin_src emacs-lisp
+; set some sane defaults (use tmux-setup if your session is named differently)
+(setq tmux-session-name 0)
+(setq tmux-window-name 0)
+(setq tmux-pane-name 0)
+
+(defun tmux-exec (command)
+  "Execute command in tmux pane"
+  (interactive "sEnter tmux command: \n")
+  (shell-command
+   (format "tmux send-keys -t %s:%s.%s '%s' Enter" tmux-session-name tmux-window-name tmux-pane-name command)))
+
+(defun tmux-setup (x y z)
+  "Setup global variables for tmux session, window, and pane"
+  (interactive "sEnter tmux session name: \nsEnter tmux window name: \nsEnter tmux pane number: ")
+  (setq tmux-session-name x)
+  (setq tmux-window-name y)
+  (setq tmux-pane-name z)
+  (message "Tmux Setup, session name: %s, window name: %s, pane number: %s" tmux-session-name tmux-window-name tmux-pane-name))
+#+end_src
 
 * Org-mode
 #+begin_src emacs-lisp
