@@ -384,12 +384,6 @@ This is a privacy-based google-translate middleware.
 #+end_src
 
 * Org-mode
-#+begin_src emacs-lisp
-(setq org-directory "~/Documents/ORG/")
-(add-hook! 'org-mode-hook 'org-download-enable)
-#+end_src
-
-
 ** Packages
 #+begin_src emacs-lisp :tangle packages.el
 (package! ob-http)              ;; org-babel http for REST requests
@@ -397,6 +391,13 @@ This is a privacy-based google-translate middleware.
 (package! org-download)
 (package! org-modern)
 (package! denote)
+(package! org-fragtog)          ;; interactive toggling of inline latex formulas
+#+end_src
+
+** Hooks
+#+begin_src emacs-lisp
+(add-hook! 'org-mode-hook 'org-download-enable)
+(add-hook! 'org-mode-hook 'org-fragtog-mode)
 #+end_src
 
 ** org-modern-mode global
@@ -406,10 +407,9 @@ This is a privacy-based google-translate middleware.
 
 ** denote
 The package [[https://github.com/protesilaos/denote][denote]] is a nice note-taking package. I use it here to keep my
-notes in one place with relevant folders. Keybinds are defined in [[*Denote keybinds][denote keybinds]].
+notes in one place with relevant folders.
 
 *** Keybinds
-Look at [[*Denote][denote section]] for more info.
 #+begin_src emacs-lisp
 (map! :leader
       (:prefix "n"
