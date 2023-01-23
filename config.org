@@ -230,6 +230,11 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 (map! "C-<mouse-2>" #'my/toggle-cursor-on-click)
 #+end_src
 
+** tree-sitter global highlighting when available
+#+begin_src emacs-lisp
+(add-hook! 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
+#+end_src
+
 * Programming languages
 
 ** Global settings
