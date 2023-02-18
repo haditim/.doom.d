@@ -320,6 +320,13 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 (package! vala-mode)
 #+end_src
 
+** Racket
+
+*** Package
+#+begin_src emacs-lisp :tangle packages.el
+(package! racket-mode)
+#+end_src
+
 * Human languages
 
 ** Enable Persian/Arabic and other RTL languages in org-mode
