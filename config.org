@@ -502,6 +502,11 @@ Thanks to Karthink for his [[https://github.com/karthink/.emacs.d/issues/2][answ
 #+begin_src emacs-lisp
 (setq projectile-project-search-path '("~/Projects/Code"))
 #+end_src
+* Version control
+** blamer.el
+#+begin_src emacs-lisp :tangle packages.el
+(package! blamer)
+#+end_src
 
 * Misc packages
 #+begin_src emacs-lisp :tangle packages.el
