@@ -16,15 +16,9 @@ git clone https://codeberg.org/haditim/.doom.d
 #+END_SRC
 
 ** Reload Doom Emacs
-Using =M-x doom/reload= inside Emacs or =~/.emacs.d/bin/doom sync= in terminal. This assures that the literal ~config.org~ gets processed.
+Using =M-x doom/reload= inside Emacs (it sometimes does not load all newly installed packages, safer is to =>) or =~/.emacs.d/bin/doom sync= in terminal. This assures that the literal ~config.org~ gets processed.
 
-** Install necessary font
-Minimally install /Dejavu Sans/ font by ~pacaur -Sy ttf-dejavu~ or modify section =Look and feel -> Font= in ~config.org~.
-
-** done!
-
-* Documentation
-The [[file:config.org][config file]] is supposed to be self-documenting.
+** done! (you can also run optional steps below)
 
 * Optional extra steps
 ** Look and feel
@@ -81,6 +75,9 @@ To user vala with LSP, install [[https://github.com/vala-lang/vala-language-serv
 *** Set spell checker language
 For changing the dictionary for spell checker, do =M-x ispell-change-dictionary= and switch to the language you want. Don't forget to have =hunspell= dictionaries installed before doing this.
 
+
+* Documentation
+The [[file:config.org][config file]] is supposed to be self-documenting.
 
 * Useful reads
 If you never used vim or Emacs, read these up
