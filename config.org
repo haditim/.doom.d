@@ -518,6 +518,16 @@ Thanks to Karthink for his [[https://github.com/karthink/.emacs.d/issues/2][answ
            :files ("subed/*.el")))
 (package! lorem-ipsum)
 #+end_src
+** Eat for terminal replacement
+#+begin_src emacs-lisp :tangle packages.el
+(package! emacs-eat
+  :recipe (:host codeberg :repo "akib/emacs-eat"
+           :files ("*.el" ("term" "term/*.el") "*.texi"
+               "*.ti" ("terminfo/e" "terminfo/e/*")
+               ("terminfo/65" "terminfo/65/*")
+               ("integration" "integration/*")
+               (:exclude ".dir-locals.el" "*-tests.el"))))
+#+end_src
 ** nov.el for epub books
 #+begin_src emacs-lisp :tangle packages.el
 (package! nov)
