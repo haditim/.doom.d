@@ -90,6 +90,14 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
       "SPC" #'+hydra/window-nav/body)
 #+end_src
 
+** fd in selected directory
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix "s"
+       :desc "Locate file in dir" "F" 'fd-dired))
+#+end_src
+
+
 * Look and feel
 ** Start fullscreen
 #+begin_src emacs-lisp
@@ -518,16 +526,7 @@ Thanks to Karthink for his [[https://github.com/karthink/.emacs.d/issues/2][answ
            :files ("subed/*.el")))
 (package! lorem-ipsum)
 #+end_src
-** Eat for terminal replacement
-#+begin_src emacs-lisp :tangle packages.el
-(package! emacs-eat
-  :recipe (:host codeberg :repo "akib/emacs-eat"
-           :files ("*.el" ("term" "term/*.el") "*.texi"
-               "*.ti" ("terminfo/e" "terminfo/e/*")
-               ("terminfo/65" "terminfo/65/*")
-               ("integration" "integration/*")
-               (:exclude ".dir-locals.el" "*-tests.el"))))
-#+end_src
+
 ** nov.el for epub books
 #+begin_src emacs-lisp :tangle packages.el
 (package! nov)
@@ -556,7 +555,6 @@ This assures ~evil~ does not conflict with [[https://github.com/sachac/subed][su
 (add-to-list '+lookup-provider-url-alist '("Startpage" "https://www.startpage.com/do/dsearch?query=%s"))
 (add-to-list '+lookup-provider-url-alist '("Qwant" "https://qwant.com/?q=%s"))
 #+end_src
-
 
 ** Ansi colors in buffer
 #+begin_src emacs-lisp
