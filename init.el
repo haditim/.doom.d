@@ -56,7 +56,7 @@
        ansible
        (debugger +lsp)
        (docker +lsp)
-       ein
+       ;; ein
        (eval +overlay)
        (lookup +dictionary +offline)
        (lsp +peek)
@@ -80,7 +80,7 @@
        (javascript +lsp +tide)
        (kotlin +lsp)
        markdown
-       org
+       (org +jupyter +pretty +present +gnuplot +dragndrop)
        raku
        php
        (python +lsp +dap +poetry)

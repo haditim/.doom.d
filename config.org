@@ -277,6 +277,7 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 (package! live-py-mode)
 (package! py-yapf)
 #+end_src
+
 *** dap debugger
 #+begin_src emacs-lisp
 (setq dap-python-debugger 'debugpy)
@@ -409,7 +410,6 @@ This is a privacy-based google-translate middleware.
 (package! ob-http)              ;; org-babel http for REST requests
 (package! eldoc-box)
 (package! org-download)
-(package! org-modern)
 (package! denote)
 (package! org-fragtog)          ;; interactive toggling of inline latex formulas
 #+end_src
@@ -418,11 +418,6 @@ This is a privacy-based google-translate middleware.
 #+begin_src emacs-lisp
 (add-hook! 'org-mode-hook 'org-download-enable)
 (add-hook! 'org-mode-hook 'org-fragtog-mode)
-#+end_src
-
-** org-modern-mode global
-#+begin_src emacs-lisp
-(global-org-modern-mode)
 #+end_src
 
 ** denote
@@ -548,6 +543,13 @@ This assures ~evil~ does not conflict with [[https://github.com/sachac/subed][su
   :leader                           ; Use leader key from now on
   :desc "MPV play/pause" "<RET>" #'subed-mpv-toggle-pause)
 #+end_src
+
+** osm.el for OSM maps1
+*** Package
+#+begin_src emacs-lisp :tangle packages.el
+(package! osm)
+#+end_src
+
 
 * Misc config (not very important and can be removed)
 ** Add Startpage and Qwant to search engines
