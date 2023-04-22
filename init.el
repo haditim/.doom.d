@@ -79,8 +79,9 @@
        (json +lsp)
        (javascript +lsp +tide)
        (kotlin +lsp)
-       markdown
+       (markdown +grip)
        (org +jupyter +pretty +present +gnuplot +dragndrop)
+       (latex +lsp +fold)
        raku
        php
        (python +lsp +dap +poetry)
