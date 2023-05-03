@@ -84,7 +84,7 @@
        (latex +lsp +fold)
        raku
        php
-       (python +lsp +dap +poetry)
+       (python +lsp +dap +poetry +pyright)
        rest
        (rust +lsp)
        (scheme +guile)

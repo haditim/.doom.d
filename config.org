@@ -150,7 +150,7 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 *** Switch themes between light and dark
 #+begin_src emacs-lisp
 (setq dark-theme 'doom-gruvbox)
-(setq light-theme 'modus-operandi)
+(setq light-theme 'doom-tomorrow-day)
 
 (defun my/light-theme ()
   (interactive)
@@ -520,6 +520,7 @@ Thanks to Karthink for his [[https://github.com/karthink/.emacs.d/issues/2][answ
   :recipe (:host github :repo "sachac/subed"
            :files ("subed/*.el")))
 (package! lorem-ipsum)
+(package! fish-mode)
 #+end_src
 
 ** nov.el for epub books
