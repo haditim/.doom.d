@@ -482,8 +482,9 @@ A replacement for dired. Unpin the version forced but Doom Emacs as per [[https:
   :localleader
     ("d" #'dirvish-dispatch))
 #+end_src
-#+begin_src emacs-lisp :tangle no
-(unpin! dirvish)
+** Hide details and sort by default
+#+begin_src emacs-lisp
+(add-hook! 'dired-mode-hook #'dired-hide-details-mode #'dired-sort-toggle-or-edit)
 #+end_src
 
 * Avy
