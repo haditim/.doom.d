@@ -291,7 +291,7 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 
 *** Local LSP server settings
 #+begin_src emacs-lisp
-(setq lsp-pylsp-plugins-pylint-enabled t)
+(setq lsp-enable-file-watchers nil)
 #+end_src
 
 *** Remote LSP server (using =python-lsp-server=)
@@ -507,10 +507,21 @@ Thanks to Karthink for his [[https://github.com/karthink/.emacs.d/issues/2][answ
 #+begin_src emacs-lisp
 (setq projectile-project-search-path '("~/Projects/Code"))
 #+end_src
+** Use comint for project-path compilations
+#+begin_src emacs-lisp
+(setq projectile-compile-use-comint-mode t)
+#+end_src
+
 * Version control
 ** blamer.el
 #+begin_src emacs-lisp :tangle packages.el
 (package! blamer)
+#+end_src
+
+* Environment variables
+** Tame Docker output when run inside emacs
+#+begin_src emacs-lisp
+(setenv "BUILDKIT_PROGRESS" "plain")
 #+end_src
 
 * Misc packages
