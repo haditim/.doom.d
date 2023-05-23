@@ -243,6 +243,13 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 (add-hook! 'tree-sitter-after-on-hook #'tree-sitter-hl-mode)
 #+end_src
 
+** Highlight indentations similar to vim indentLine
+You can use =SPC t i= to disable it.
+
+#+begin_src emacs-lisp
+(setq highlight-indent-guides-responsive 'top)
+#+end_src
+
 * Programming languages
 
 ** Global settings
