@@ -273,6 +273,13 @@ You can use =SPC t i= to disable it.
 (setq breadcrumb-imenu-crumb-separator " ➤ ")
 #+end_src
 
+***** keybind to toggle it
+#+begin_src emacs-lisp
+(map! :leader
+      (:prefix "t"
+       :desc "breadcrumb" "B" #'breadcrumb-mode))
+#+end_src
+
 *** Enable eldoc-box by default when eglot loads
 #+begin_src emacs-lisp
 (add-hook 'eglot--managed-mode-hook #'eldoc-box-hover-mode t)
