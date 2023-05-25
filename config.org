@@ -253,9 +253,24 @@ You can use =SPC t i= to disable it.
 * Programming languages
 
 ** Global settings
-*** lsp always show breadcrumb
+*** Breadcrumbs
+**** lsp always show breadcrumb
 #+begin_src emacs-lisp
 (setq lsp-headerline-breadcrumb-enable t)
+#+end_src
+
+**** breadcrumb-mode (when LSP is not used)
+***** package
+#+begin_src emacs-lisp :tangle packages.el
+(package! breadcrumb
+  :recipe (:host github :repo "joaotavora/breadcrumb"
+           :files ("breadcrumb.el")))
+#+end_src
+
+***** setup
+#+begin_src emacs-lisp
+(breadcrumb-mode)
+(setq breadcrumb-imenu-crumb-separator " ➤ ")
 #+end_src
 
 *** Enable eldoc-box by default when eglot loads
