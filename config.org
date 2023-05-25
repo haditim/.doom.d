@@ -99,9 +99,9 @@ Adds "SPC" to evil window map. So one can do =C-w SPC= or ="SPC w SPC"= to open 
 
 
 * Look and feel
-** Start fullscreen
+** Start fullscreen (set =maximized= instead for "just" maximizing)
 #+begin_src emacs-lisp
-(add-to-list 'initial-frame-alist '(fullscreen . maximized))
+(add-to-list 'initial-frame-alist '(fullscreen . fullboth))
 #+end_src
 
 ** Dashboard
