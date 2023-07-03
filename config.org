@@ -269,7 +269,6 @@ You can use =SPC t i= to disable it.
 
 ***** setup
 #+begin_src emacs-lisp
-(breadcrumb-mode)
 (setq breadcrumb-imenu-crumb-separator " ➤ ")
 #+end_src
 
@@ -291,6 +290,20 @@ You can use =SPC t i= to disable it.
 #+end_src
 
 ** Python
+*** Extra funcions
+**** Restart REPL
+#+begin_src emacs-lisp
+my/restart-python-repl ()
+  "Restart python repl"
+  (interactive)
+  (if (get-buffer "*Python*")
+      (let ((kill-buffer-query-functions nil)) (kill-buffer "*Python*")))
+  (+python/open-repl)
+  (evil-window-mru))
+
+(global-set-key (kbd "C-c C-x C-c") 'my/restart-python-repl)
+#+end_src
+
 *** Keybinds
 #+begin_src emacs-lisp
 (map! :after python
