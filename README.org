@@ -1,4 +1,4 @@
-NOTE: this repo is now hosted mainly on [[https://codeberg.org/haditim/.doom.d][Codeberg]] and [[https://github.com/haditim/.doom.d][GitHub]] serves as its mirror.
+NOTE: this repo is now hosted mainly on [[https://codeberg.org/haditim/.doom.d][Codeberg]] and [[https://github.com/haditim/.doom.d][GitHub]] serves as its mirror. I currently use my own Emacs configs found on [[https://codeberg.org/haditim/dotemacs][Codeberg]]. Thus this project is not updated as often anymore.
 
 * .doom.d
 My personal [[https://github.com/doomemacs/doomemacs][Doom Emacs]] settings.
