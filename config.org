@@ -284,11 +284,6 @@ You can use =SPC t i= to disable it.
 (add-hook 'eglot--managed-mode-hook #'eldoc-box-hover-mode t)
 #+end_src
 
-*** Global tree-sitter mode
-#+begin_src emacs-lisp
-(global-tree-sitter-mode)
-#+end_src
-
 ** Python
 *** Extra funcions
 **** Restart REPL

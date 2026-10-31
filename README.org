@@ -1,35 +1,50 @@
-NOTE: this repo is now hosted mainly on [[https://codeberg.org/haditim/.doom.d][Codeberg]] and [[https://github.com/haditim/.doom.d][GitHub]] serves as its mirror. I currently use my own Emacs configs found on [[https://codeberg.org/haditim/dotemacs][Codeberg]]. Thus this project is not updated as often anymore.
+NOTE: this repo is now hosted mainly on [[https://codeberg.org/haditim/.doom.d][Codeberg]] and [[https://github.com/haditim/.doom.d][GitHub]] serves as its
+mirror. I currently use my own Emacs configs found on [[https://codeberg.org/haditim/dotemacs][Codeberg]] which is a
+lightweight alternative but with most of essential functionlity preserved.
 
 * .doom.d
 My personal [[https://github.com/doomemacs/doomemacs][Doom Emacs]] settings.
 * Usage
 ** Install Doom Emacs
+*** Install as main config
 #+BEGIN_SRC shell
-git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.emacs.d
-~/.emacs.d/bin/doom install
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/emacs
+~/.config/emacs/bin/doom install
+#+END_SRC
+*** Install alongside other configs
+#+BEGIN_SRC shell
+git clone --depth 1 https://github.com/hlissner/doom-emacs ~/.config/doomemacs
+~/.config/doomemacs/bin/doom install
 #+END_SRC
 
 ** Clone this repo
 #+BEGIN_SRC shell
-mv .doom.d .doom.d.bak
-git clone https://codeberg.org/haditim/.doom.d
+mv ~/.config/doom{,.bak}
+git clone https://codeberg.org/haditim/.doom.d ~/.config/doom
 #+END_SRC
 
 ** Reload Doom Emacs
-Using =M-x doom/reload= inside Emacs (it sometimes does not load all newly installed packages, safer is to ->) or =~/.emacs.d/bin/doom sync= in terminal.
+=~/.config/emacs/bin/doom sync= in terminal (adjust path if installed in ~~/.config/doomemacs~).
 
 ** done! (you can also run optional steps below)
 
 * Optional extra steps
 ** Look and feel
 *** Ligatures
-My config tries to use =Hack FC Ligatured= or =Dejavu Sans Code= fonts which support ligatures (ligatures option should also be enabled in =:ui ligatures= in doom's =init.el=). If neither of these fonts exist on the system, it falls back to =DejaVu Sans Mono=. Fonts can be installed using ~pacaur -Sy ttf-hack-ligatured~ / ~pacaur -Sy ttf-dejavu-sans-code~ or downloaded from [[https://github.com/gaplo917/Ligatured-Hack][hack repo]] or [[https://github.com/SSNikolaevich/DejaVuSansCode][sans code repo]], respectively.
+My config tries to use =Hack FC Ligatured= or =Dejavu Sans Code= fonts which support
+ligatures (ligatures option should also be enabled in =:ui ligatures= in doom's
+=init.el=). If neither of these fonts exist on the system, it falls back to =DejaVu
+Sans Mono=. Fonts can be installed using ~pacaur -Sy ttf-hack-ligatured~ / ~pacaur
+-Sy ttf-dejavu-sans-code~ or downloaded from [[https://github.com/gaplo917/Ligatured-Hack][hack repo]] or [[https://github.com/SSNikolaevich/DejaVuSansCode][sans code repo]],
+respectively.
 
 ** Programming languages
 *** Python
 - Install [[https://github.com/python-lsp/python-lsp-server][pylsp]] ~pip install 'python-lsp-server[all]'~
 - Install [[https://github.com/Richardk2n/pylsp-mypy][pylsp-mypy]] ~pip install pylsp-mypy~ for type checking
-- Install [[https://github.com/python-rope/pylsp-rope][pylsp-rope]] ~pip install pylsp-rope~ for more refactoring possibilities and code actions. This slowed my emacs significantly, if you see the same, just uninstall it ~pip uninstall pylsp-rope~.
+- Install [[https://github.com/python-rope/pylsp-rope][pylsp-rope]] ~pip install pylsp-rope~ for more refactoring possibilities
+  and code actions. This slowed my emacs significantly, if you see the same,
+  just uninstall it ~pip uninstall pylsp-rope~.
 - Install [[https://github.com/python-lsp/python-lsp-black][pylsp-black]] ~pip install python-lsp-black~ for formatting using yapf or blacken
 
 *** Rust
@@ -60,7 +75,13 @@ npm install --global vscode-html-languageserver-bin
 #+END_SRC
 
 *** Kotlin
-For getting Kotlin to work, you need to install [[https://github.com/fwcd/kotlin-language-server][kotlin-language-server]]. For formatting [[https://github.com/pinterest/ktlint][ktlint]] can be used. If the format buffer does not work as you expect, especially with indentations, use modifier key with it (i.e. =SPC u SPC c f=) and pick ktlint as formatter. If this also does not work, you can fall back to running shell command on the buffer's file with =M-!= pushing down arrow (or =M-n= once) and prepend your command to the file name that is filled for you with ~ktlint -F~.
+For getting Kotlin to work, you need to install [[https://github.com/fwcd/kotlin-language-server][kotlin-language-server]]. For
+formatting [[https://github.com/pinterest/ktlint][ktlint]] can be used. If the format buffer does not work as you expect,
+especially with indentations, use modifier key with it (i.e. =SPC u SPC c f=) and
+pick ktlint as formatter. If this also does not work, you can fall back to
+running shell command on the buffer's file with =M-!= pushing down arrow (or =M-n=
+once) and prepend your command to the file name that is filled for you with
+~ktlint -F~.
 
 *** Flutter
 Install dart and Flutter SDK. To open emulator, run
@@ -73,7 +94,9 @@ To user vala with LSP, install [[https://github.com/vala-lang/vala-language-serv
 
 ** Misc
 *** Set spell checker language
-For changing the dictionary for spell checker, do =M-x ispell-change-dictionary= and switch to the language you want. Don't forget to have =hunspell= dictionaries installed before doing this.
+For changing the dictionary for spell checker, do =M-x ispell-change-dictionary=
+and switch to the language you want. Don't forget to have =hunspell= dictionaries
+installed before doing this.
 
 
 * Documentation
@@ -87,7 +110,8 @@ If you never used vim or Emacs, read these up
 
 * Personal notes
 ** Double remotes for the repo
-For setting up two remotes for the repo, one should usually do the following (taken from [[https://jigarius.com/blog/multiple-git-remote-repositories][this blog post]]):
+For setting up two remotes for the repo, one should usually do the following
+(taken from [[https://jigarius.com/blog/multiple-git-remote-repositories][this blog post]]):
 #+begin_src shell
 git remote add all REMOTE-URL-1
 git remote set-url --add --push all REMOTE-URL-1
