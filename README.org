@@ -26,7 +26,12 @@ git clone https://codeberg.org/haditim/.doom.d ~/.config/doom
 ** Reload Doom Emacs
 =~/.config/emacs/bin/doom sync= in terminal (adjust path if installed in ~~/.config/doomemacs~).
 
-** done! (you can also run optional steps below)
+** Run and enjoy
+*** Installed as main config
+Simply run ~emacs~
+
+*** Installed alongside other config
+Run =emacs --init-directory=~/.config/doomemacs=
 
 * Optional extra steps
 ** Look and feel
